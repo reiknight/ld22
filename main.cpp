@@ -3,7 +3,10 @@
 
 void renderCallback();
 void keyDownCallback(unsigned char key, int x, int y);
+void keyUpCallback(unsigned char key, int x, int y);
 void changeSize(int w, int h);
+void idleCallback();
+
 void setupRC();
 
 int main(int argc, char **argv)
@@ -28,7 +31,9 @@ int main(int argc, char **argv)
 	//Register callbacks
 	glutDisplayFunc(renderCallback);
 	glutKeyboardFunc(keyDownCallback);		
+	glutKeyboardUpFunc(keyUpCallback);
 	glutReshapeFunc(changeSize);
+	glutIdleFunc(idleCallback);
 	
 	//Setup Render Context
 	setupRC();
@@ -39,39 +44,22 @@ int main(int argc, char **argv)
 
 void renderCallback()
 {
-  glClear(GL_COLOR_BUFFER_BIT);
-	glLoadIdentity();
-  glColor4f(1.0f,1.0f,1.0f,1.0f);
-
-  glBegin(GL_QUADS);
-  glVertex2f(50.0f, 0.0f);
-  glVertex2f(50.0f, 50.0f);
-  glVertex2f(0.0f, 50.0f);
-  glVertex2f(0.0f, 0.0f);
-  glEnd();
-
-  glBegin(GL_LINES);
-  glColor3f(1.0f, 0.0f, 0.0f);
-  glVertex2f(0.0f, 0.0f);
-  glVertex2f(200.0f, 0.0f);
-  glColor3f(0.0f, 1.0f, 0.0f);
-  glVertex2f(0.0f, 0.0f);
-  glVertex2f(0.0f, 200.0f);
-  glEnd();
-
-	glutSwapBuffers();
+  Game::getInstance()->render();
 }
 
 void keyDownCallback(unsigned char key, int x, int y)
 {
-  if(key == 27) {
-    exit(0);
-  }
+  Game::getInstance()->readKeyboard(key, true);
+}
+
+void keyUpCallback(unsigned char key, int x, int y)
+{
+  Game::getInstance()->readKeyboard(key, false);     
 }
 
 void changeSize(int w, int h)
 {
- 	GLfloat aspectRatio;
+  GLfloat aspectRatio;
 
   if(h == 0) h = 1;
 
@@ -89,13 +77,19 @@ void changeSize(int w, int h)
   {
     glOrtho(-300.0 * aspectRatio, 300.0 * aspectRatio, -300.0, 300.0, 1.0, -1.0);
   }
+  
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();	 
+}
+
+void idleCallback()
+{
+  Game::getInstance()->loop();     
 }
 
 void setupRC()
 {
   glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
-	glAlphaFunc(GL_GREATER, 0.05f);
-	glEnable(GL_ALPHA_TEST);
+  glAlphaFunc(GL_GREATER, 0.05f);
+  glEnable(GL_ALPHA_TEST);
 }
