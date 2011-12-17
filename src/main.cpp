@@ -78,11 +78,11 @@ void changeSize(int w, int h)
   aspectRatio = (GLfloat)w / (GLfloat)h;
   if(w <= h)
   {
-    glOrtho(-500.0, 500.0, -100 / aspectRatio, 500.0 / aspectRatio, 1.0, -1.0);
+    glOrtho(-SCENE_WIDTH, SCENE_WIDTH, -100 / aspectRatio, SCENE_HEIGHT / aspectRatio, 1.0, -1.0);
   }
   else
   {
-    glOrtho(-500.0 * aspectRatio, 500.0 * aspectRatio, -500.0, 500.0, 1.0, -1.0);
+    glOrtho(-SCENE_WIDTH * aspectRatio, SCENE_WIDTH * aspectRatio, -SCENE_HEIGHT, SCENE_HEIGHT, 1.0, -1.0);
   }
   
   glMatrixMode(GL_MODELVIEW);
