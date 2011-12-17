@@ -1,0 +1,66 @@
+# Project: ludumdare
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../bin/Worker.o ../bin/Enemy.o ../bin/functions.o ../bin/Game.o ../bin/main.o ../bin/Player.o ../bin/Resource.o ../bin/Sprite.o ../bin/Task.o ../bin/Texture.o ../bin/Tile.o ../bin/Timer.o ../bin/TileMap.o $(RES)
+LINKOBJ  = ../bin/Worker.o ../bin/Enemy.o ../bin/functions.o ../bin/Game.o ../bin/main.o ../bin/Player.o ../bin/Resource.o ../bin/Sprite.o ../bin/Task.o ../bin/Texture.o ../bin/Tile.o ../bin/Timer.o ../bin/TileMap.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 corona.lib  -g3 
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/Documents and Settings/David/ludumdare/src/include"  -I"C:/Documents and Settings/David/ludumdare/lib/corona"  -I"C:/Documents and Settings/David/ludumdare/lib/rapidxml" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/Documents and Settings/David/ludumdare/src/include"  -I"C:/Documents and Settings/David/ludumdare/lib/corona"  -I"C:/Documents and Settings/David/ludumdare/lib/rapidxml" 
+BIN  = ludumdare.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ludumdare.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "ludumdare.exe" $(LIBS)
+
+../bin/Worker.o: ../src/Worker.cpp
+	$(CPP) -c ../src/Worker.cpp -o ../bin/Worker.o $(CXXFLAGS)
+
+../bin/Enemy.o: ../src/Enemy.cpp
+	$(CPP) -c ../src/Enemy.cpp -o ../bin/Enemy.o $(CXXFLAGS)
+
+../bin/functions.o: ../src/functions.cpp
+	$(CPP) -c ../src/functions.cpp -o ../bin/functions.o $(CXXFLAGS)
+
+../bin/Game.o: ../src/Game.cpp
+	$(CPP) -c ../src/Game.cpp -o ../bin/Game.o $(CXXFLAGS)
+
+../bin/main.o: ../src/main.cpp
+	$(CPP) -c ../src/main.cpp -o ../bin/main.o $(CXXFLAGS)
+
+../bin/Player.o: ../src/Player.cpp
+	$(CPP) -c ../src/Player.cpp -o ../bin/Player.o $(CXXFLAGS)
+
+../bin/Resource.o: ../src/Resource.cpp
+	$(CPP) -c ../src/Resource.cpp -o ../bin/Resource.o $(CXXFLAGS)
+
+../bin/Sprite.o: ../src/Sprite.cpp
+	$(CPP) -c ../src/Sprite.cpp -o ../bin/Sprite.o $(CXXFLAGS)
+
+../bin/Task.o: ../src/Task.cpp
+	$(CPP) -c ../src/Task.cpp -o ../bin/Task.o $(CXXFLAGS)
+
+../bin/Texture.o: ../src/Texture.cpp
+	$(CPP) -c ../src/Texture.cpp -o ../bin/Texture.o $(CXXFLAGS)
+
+../bin/Tile.o: ../src/Tile.cpp
+	$(CPP) -c ../src/Tile.cpp -o ../bin/Tile.o $(CXXFLAGS)
+
+../bin/Timer.o: ../src/Timer.cpp
+	$(CPP) -c ../src/Timer.cpp -o ../bin/Timer.o $(CXXFLAGS)
+
+../bin/TileMap.o: ../src/TileMap.cpp
+	$(CPP) -c ../src/TileMap.cpp -o ../bin/TileMap.o $(CXXFLAGS)

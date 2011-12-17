@@ -1,11 +1,11 @@
 [Project]
 FileName=ludumdare.dev
 Name=ludumdare
-UnitCount=20
+UnitCount=26
 Type=1
 Ver=1
 ObjFiles=
-Includes=
+Includes="C:\Documents and Settings\David\ludumdare\src\include";"C:\Documents and Settings\David\ludumdare\lib\corona";"C:\Documents and Settings\David\ludumdare\lib\rapidxml"
 Libs=
 PrivateResource=
 ResourceIncludes=
@@ -15,12 +15,12 @@ CppCompiler=
 Linker=-lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32_@@_corona.lib_@@_
 IsCpp=1
 Icon=
-ExeOutput=
-ObjectOutput=
+ExeOutput=..\bin
+ObjectOutput=..\bin
 OverrideOutput=0
 OverrideOutputName=ludumdare.exe
 HostApplication=
-Folders=rapidxml
+Folders="Header Files","Source Files"
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -30,9 +30,9 @@ CompilerSet=0
 CompilerSettings=0000000000000001000000
 
 [Unit1]
-FileName=main.cpp
+FileName=..\src\Worker.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -40,9 +40,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=Globals.h
+FileName=..\src\Enemy.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -50,9 +50,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=Game.h
+FileName=..\src\functions.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -60,9 +60,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=Game.cpp
+FileName=..\src\Game.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -88,19 +88,9 @@ ProductVersion=
 AutoIncBuildNr=0
 
 [Unit5]
-FileName=Timer.h
+FileName=..\src\main.cpp
 CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit6]
-FileName=Timer.cpp
-CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -108,9 +98,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=Texture.h
+FileName=..\src\Resource.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -118,9 +108,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit8]
-FileName=Texture.cpp
+FileName=..\src\Sprite.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -128,9 +118,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit9]
-FileName=Sprite.h
+FileName=..\src\Task.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -138,9 +128,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit10]
-FileName=Sprite.cpp
+FileName=..\src\Texture.cpp
 CompileCpp=1
-Folder=
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -148,9 +138,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit11]
-FileName=rapidxml\rapidxml_utils.hpp
+FileName=..\src\Tile.cpp
 CompileCpp=1
-Folder=rapidxml
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -158,9 +148,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=rapidxml\rapidxml.hpp
+FileName=..\src\Timer.cpp
 CompileCpp=1
-Folder=rapidxml
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000
@@ -168,9 +158,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=rapidxml\rapidxml_iterators.hpp
+FileName=..\src\include\Worker.h
 CompileCpp=1
-Folder=rapidxml
+Folder=Header Files
 Compile=1
 Link=1
 Priority=1000
@@ -178,9 +168,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=rapidxml\rapidxml_print.hpp
+FileName=..\src\include\Enemy.h
 CompileCpp=1
-Folder=rapidxml
+Folder=Header Files
 Compile=1
 Link=1
 Priority=1000
@@ -188,9 +178,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=functions.cpp
+FileName=..\src\include\functions.h
 CompileCpp=1
-Folder=
+Folder=Header Files
 Compile=1
 Link=1
 Priority=1000
@@ -198,9 +188,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit16]
-FileName=functions.h
+FileName=..\src\include\Game.h
 CompileCpp=1
-Folder=
+Folder=Header Files
 Compile=1
 Link=1
 Priority=1000
@@ -211,24 +201,10 @@ BuildCmd=
 <<<<<<< HEAD
 FileName=Worker.h
 =======
-FileName=Tile.cpp
+FileName=..\src\include\Globals.h
 >>>>>>> WIP: Map and Tile. Problems with debugger
 CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit18]
-<<<<<<< HEAD
-FileName=Worker.cpp
-=======
-FileName=Tile.h
->>>>>>> WIP: Map and Tile. Problems with debugger
-CompileCpp=1
-Folder=
+Folder=Header Files
 Compile=1
 Link=1
 Priority=1000
@@ -239,10 +215,10 @@ BuildCmd=
 <<<<<<< HEAD
 FileName=Player.h
 =======
-FileName=Map.cpp
+FileName=..\src\include\Resource.h
 >>>>>>> WIP: Map and Tile. Problems with debugger
 CompileCpp=1
-Folder=
+Folder=Header Files
 Compile=1
 Link=1
 Priority=1000
@@ -253,10 +229,90 @@ BuildCmd=
 <<<<<<< HEAD
 FileName=Player.cpp
 =======
-FileName=Map.h
+FileName=..\src\include\Sprite.h
 >>>>>>> WIP: Map and Tile. Problems with debugger
 CompileCpp=1
-Folder=
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit21]
+FileName=..\src\include\Task.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit22]
+FileName=..\src\include\Texture.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit23]
+FileName=..\src\include\Tile.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit24]
+FileName=..\src\include\Timer.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit26]
+FileName=..\src\include\TileMap.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit6]
+FileName=..\src\Player.cpp
+CompileCpp=1
+Folder=Source Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit18]
+FileName=..\src\include\Player.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit25]
+FileName=..\src\TileMap.cpp
+CompileCpp=1
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000

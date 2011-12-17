@@ -4,7 +4,7 @@
 #include "Globals.h"
 #include "Timer.h"
 #include "Sprite.h"
-#include "Map.h"
+#include "TileMap.h"
 
 /**
  * Core class
@@ -50,7 +50,7 @@ class Game
      */
     Timer timer;
     Sprite *sprite;
-    Map *map;
+    TileMap *map;
 };
 
 #endif

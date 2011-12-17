@@ -1,15 +1,15 @@
-#ifndef CLASS_MAP_H
-#define CLASS_MAP_H
+#ifndef CLASS_TILE_MAP_H
+#define CLASS_TILE_MAP_H
 
 #include "Globals.h"
 #include "Sprite.h"
 #include "Tile.h"
 
-class Map
+class TileMap
 {
   public:
-    Map(char *filename);
-    ~Map();
+    TileMap(char *filename);
+    ~TileMap();
     void reload();
     void clean();
     void render();

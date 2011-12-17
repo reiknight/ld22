@@ -8,7 +8,7 @@ class Enemy {
              Enemy();
              ~Enemy();
       private:
-              long int ciencia;
+              long int science;
 };
 
 #endif

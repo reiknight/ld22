@@ -1,20 +1,20 @@
-#include "Map.h"
+#include "TileMap.h"
 
-Map::Map(char *filename)
+TileMap::TileMap(char *filename)
 {
   map_file = filename;
   reload();
 }
 
-Map::~Map()
+TileMap::~TileMap()
 {
   clean();
 }
 
-void Map::reload()
+void TileMap::reload()
 {
   rapidxml::xml_document<> doc;
-  rapidxml::xml_node<> *map;
+  rapidxml::xml_node<> *TileMap;
   char *buf;
   Tile *tile;
   vector<Tile*>::iterator it = tiles.begin();
@@ -27,11 +27,11 @@ void Map::reload()
     cout << "Loading " << map_file << "..." << endl;      
     buf = readFileContents(map_file);
     doc.parse<0>(buf);
-    map = doc.first_node("map");
+    TileMap = doc.first_node("map");
     
-    if(map != 0)
+    if(TileMap != 0)
     {    
-      for(rapidxml::xml_node<> *tile_node = map->first_node("tiles")->first_node("tile"); tile_node != 0; tile_node = tile_node->next_sibling("tile"))
+      for(rapidxml::xml_node<> *tile_node = TileMap->first_node("tiles")->first_node("tile"); tile_node != 0; tile_node = tile_node->next_sibling("tile"))
       {
         //sprintf(tile_node->first_node("id")->value(), "%d", &id);
         //tile = new Tile(tile_node->first_node("name")->value(), tile_node->first_node("sprite")->first_attribute("src")->value());
@@ -64,17 +64,17 @@ void Map::reload()
   }                   
 }
 
-void Map::clean()
+void TileMap::clean()
 {
   tiles.clear();
 }
 
-void Map::render()
+void TileMap::render()
 {
      
 }
 
-void Map::update(float dt)
+void TileMap::update(float dt)
 {
      
 }

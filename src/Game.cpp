@@ -5,7 +5,7 @@ void renderBitmapString(float x, float y, void *font, char *string);
 Game::Game()
 {
   sprite = new Sprite("assets/turtle.xml");
-  map = new Map("assets/map.xml");
+  map = new TileMap("assets/map.xml");
 }
 
 Game::~Game()
