@@ -1,7 +1,7 @@
 [Project]
 FileName=ludumdare.dev
 Name=ludumdare
-UnitCount=16
+UnitCount=18
 Type=1
 Ver=1
 ObjFiles=
@@ -199,6 +199,26 @@ BuildCmd=
 
 [Unit16]
 FileName=functions.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit17]
+FileName=Worker.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit18]
+FileName=Worker.cpp
 CompileCpp=1
 Folder=
 Compile=1
