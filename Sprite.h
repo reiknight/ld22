@@ -13,6 +13,7 @@ class Sprite
     void clean();
     void update(float dt);
     void render();
+    void render(int _x, int _y);
   private:
     char *sprite_file;
     int x;

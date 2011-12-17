@@ -1,10 +1,9 @@
 <sprite>
-        <texture src="assets/test.png" />
-        <position x="100" y="50" />
+        <texture src="assets/turtle.png" />
+        <position x="50" y="0" />
         <frames>6</frames>
         <animation time="200">
-                   <frame>0</frame>
-                   <frame>1</frame>
-                   <frame>5</frame>
+          <frame>0</frame>
+          <frame>1</frame>
         </animation>
 </sprite>

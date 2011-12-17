@@ -208,7 +208,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit17]
+<<<<<<< HEAD
 FileName=Worker.h
+=======
+FileName=Tile.cpp
+>>>>>>> WIP: Map and Tile. Problems with debugger
 CompileCpp=1
 Folder=
 Compile=1
@@ -218,7 +222,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit18]
+<<<<<<< HEAD
 FileName=Worker.cpp
+=======
+FileName=Tile.h
+>>>>>>> WIP: Map and Tile. Problems with debugger
 CompileCpp=1
 Folder=
 Compile=1
@@ -228,7 +236,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit19]
+<<<<<<< HEAD
 FileName=Player.h
+=======
+FileName=Map.cpp
+>>>>>>> WIP: Map and Tile. Problems with debugger
 CompileCpp=1
 Folder=
 Compile=1
@@ -238,7 +250,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit20]
+<<<<<<< HEAD
 FileName=Player.cpp
+=======
+FileName=Map.h
+>>>>>>> WIP: Map and Tile. Problems with debugger
 CompileCpp=1
 Folder=
 Compile=1

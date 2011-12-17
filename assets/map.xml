@@ -1,0 +1,25 @@
+<map>
+  <tiles>
+    <tile>
+      <id>0</i>
+      <name>grass</name>
+      <sprite src="assets/grass.xml" />
+    </tile>
+    <tile>
+      <id>1</i>
+      <name>water</name>
+      <sprite src="assets/water.xml" />      
+    </tile>
+  </tiles>
+  <tileset>
+    0,0,0,0,0,0,0,0,0,0
+    0,0,0,0,0,0,0,0,0,0
+    0,0,0,0,0,0,0,1,1,0
+    0,0,0,0,0,0,0,1,1,0
+    0,0,0,0,0,0,0,0,0,0
+    0,0,0,0,0,0,0,0,0,0
+    0,0,0,0,0,0,0,0,0,0
+    0,0,1,1,1,0,0,0,0,0
+    0,0,0,0,0,0,0,0,0,0
+  </tileset>
+</map>

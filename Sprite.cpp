@@ -56,19 +56,22 @@ void Sprite::reload()
 
 void Sprite::clean()
 {
-  if(texture != 0)
-    delete texture;
+  //if(texture != 0)
+  //  delete texture;
  
   animation.clear();    
 }
 
 void Sprite::update(float dt)
 {
-  counter += dt;
-  if(counter > animation_time)
+  if(animation_time > 0)
   {
-    counter = 0;
-    current_frame = (current_frame + 1) % 3; //TODO: hardcoded
+    counter += dt;
+    if(counter > animation_time)
+    {
+      counter = 0;
+      current_frame = (current_frame + 1) % 3; //TODO: hardcoded
+    }
   }
 }
 
@@ -105,4 +108,11 @@ void Sprite::render()
   glPolygonMode(GL_FRONT, GL_FILL);
   
   glPopMatrix();
+}
+
+void Sprite::render(int _x, int _y)
+{
+  x = _x;
+  y = _y;
+  render();
 }

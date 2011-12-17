@@ -5,6 +5,7 @@ void renderBitmapString(float x, float y, void *font, char *string);
 Game::Game()
 {
   sprite = new Sprite("assets/turtle.xml");
+  map = new Map("assets/map.xml");
 }
 
 Game::~Game()
@@ -30,25 +31,18 @@ void Game::render()
   glLoadIdentity();
   glColor4f(1.0f,1.0f,1.0f,1.0f);
 
+  map->render();
   sprite->render();
-  
-  glBegin(GL_LINES);
-  glColor3f(1.0f, 0.0f, 0.0f);
-  glVertex2f(0.0f, 0.0f);
-  glVertex2f(200.0f, 0.0f);
-  glColor3f(0.0f, 1.0f, 0.0f);
-  glVertex2f(0.0f, 0.0f);
-  glVertex2f(0.0f, 200.0f);
-  glEnd();
-  
+    
 	glColor3f(1.0f,1.0f,1.0f);
-	renderBitmapString(150,150,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
+	renderBitmapString(450,450,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
 
   glutSwapBuffers();
 }
 
 void Game::update(float dt)
 {
+  map->update(dt);
   sprite->update(dt);
 }
 
