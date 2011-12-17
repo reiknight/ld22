@@ -1,18 +1,18 @@
 # Project: ludumdare
 # Makefile created by Dev-C++ 4.9.9.2
 
-CPP  = g++.exe
-CC   = gcc.exe
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
 RES  = 
-OBJ  = main.o Game.o Timer.o $(RES)
-LINKOBJ  = main.o Game.o Timer.o $(RES)
-LIBS =  -L"C:/Dev-Cpp/lib" -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32  
+OBJ  = main.o Game.o Timer.o Texture.o Sprite.o $(RES)
+LINKOBJ  = main.o Game.o Timer.o Texture.o Sprite.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 corona.lib  -g3 
 INCS =  -I"C:/Dev-Cpp/include" 
 CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
 BIN  = ludumdare.exe
-CXXFLAGS = $(CXXINCS)  
-CFLAGS = $(INCS)  
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -34,3 +34,9 @@ Game.o: Game.cpp
 
 Timer.o: Timer.cpp
 	$(CPP) -c Timer.cpp -o Timer.o $(CXXFLAGS)
+
+Texture.o: Texture.cpp
+	$(CPP) -c Texture.cpp -o Texture.o $(CXXFLAGS)
+
+Sprite.o: Sprite.cpp
+	$(CPP) -c Sprite.cpp -o Sprite.o $(CXXFLAGS)

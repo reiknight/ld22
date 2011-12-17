@@ -3,6 +3,7 @@
 
 #include "Globals.h"
 #include "Timer.h"
+#include "Sprite.h"
 
 /**
  * Core class
@@ -47,6 +48,7 @@ class Game
      * on all platforms
      */
     Timer timer;
+    Sprite *sprite;
 };
 
 #endif

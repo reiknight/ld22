@@ -4,12 +4,16 @@ void renderBitmapString(float x, float y, void *font, char *string);
 
 Game::Game()
 {
-
+  int *animation = new int[3];
+  animation[0] = 0;
+  animation[1] = 1;
+  animation[2] = 2;
+  sprite = new Sprite(0, 0, "test.png", 6, 250, animation);
 }
 
 Game::~Game()
 {
-
+  delete sprite;
 }
 
 void Game::loop()
@@ -30,13 +34,8 @@ void Game::render()
   glLoadIdentity();
   glColor4f(1.0f,1.0f,1.0f,1.0f);
 
-  glBegin(GL_QUADS);
-  glVertex2f(50.0f, 0.0f);
-  glVertex2f(50.0f, 50.0f);
-  glVertex2f(0.0f, 50.0f);
-  glVertex2f(0.0f, 0.0f);
-  glEnd();
-
+  sprite->render();
+  
   glBegin(GL_LINES);
   glColor3f(1.0f, 0.0f, 0.0f);
   glVertex2f(0.0f, 0.0f);
@@ -54,7 +53,7 @@ void Game::render()
 
 void Game::update(float dt)
 {
-
+  sprite->update(dt);
 }
 
 void Game::readKeyboard(char key, bool pressed)

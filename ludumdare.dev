@@ -1,7 +1,7 @@
 [Project]
 FileName=ludumdare.dev
 Name=ludumdare
-UnitCount=6
+UnitCount=10
 Type=1
 Ver=1
 ObjFiles=
@@ -12,7 +12,7 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
-Linker=-lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32_@@_
+Linker=-lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32_@@_corona.lib_@@_
 IsCpp=1
 Icon=
 ExeOutput=
@@ -27,7 +27,7 @@ CustomMakefile=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=0000000000000000000000
+CompilerSettings=0000000000000001000000
 
 [Unit1]
 FileName=main.cpp
@@ -99,6 +99,46 @@ BuildCmd=
 
 [Unit6]
 FileName=Timer.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit7]
+FileName=Texture.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit8]
+FileName=Texture.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit9]
+FileName=Sprite.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit10]
+FileName=Sprite.cpp
 CompileCpp=1
 Folder=
 Compile=1
