@@ -2,6 +2,7 @@
 
 Sprite::Sprite(char *filename)
 {
+  texture = 0;
   sprite_file = filename;
   reload();
 }
@@ -56,8 +57,8 @@ void Sprite::reload()
 
 void Sprite::clean()
 {
-  //if(texture != 0)
-  //  delete texture;
+  if(texture != 0)
+    delete texture;
  
   animation.clear();    
 }
@@ -82,30 +83,33 @@ void Sprite::render()
   glTranslatef(x, y, 0);
   
   // Draw texture
-  glEnable(GL_TEXTURE_2D);
-  glBindTexture(GL_TEXTURE_2D, texture->getId());
-  glBegin(GL_QUADS);
-    glTexCoord2f((animation[current_frame] + 1) * offset_x, 1.0f);  
-    glVertex2f(frame_width, 0.0f);
-    glTexCoord2f((animation[current_frame] + 1) * offset_x, 0.0f);
-    glVertex2f(frame_width, texture->getHeight());
-    glTexCoord2f(animation[current_frame] * offset_x, 0.0f);
-    glVertex2f(0.0f, texture->getHeight());
-    glTexCoord2f(animation[current_frame] * offset_x, 1.0f);
-    glVertex2f(0.0f, 0.0f);
-  glEnd();
-  glDisable(GL_TEXTURE_2D);
+  if(texture != 0)
+  {
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texture->getId());
+    glBegin(GL_QUADS);
+      glTexCoord2f((animation[current_frame] + 1) * offset_x, 1.0f);  
+      glVertex2f(frame_width, 0.0f);
+      glTexCoord2f((animation[current_frame] + 1) * offset_x, 0.0f);
+      glVertex2f(frame_width, texture->getHeight());
+      glTexCoord2f(animation[current_frame] * offset_x, 0.0f);
+      glVertex2f(0.0f, texture->getHeight());
+      glTexCoord2f(animation[current_frame] * offset_x, 1.0f);
+      glVertex2f(0.0f, 0.0f);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
   
-  // Bounding Box
-  glColor3f(0.0f, 0.0f, 0.0f);
-  glPolygonMode(GL_FRONT, GL_LINE);
-  glBegin(GL_QUADS);
-    glVertex2f(frame_width, 0.0f);
-    glVertex2f(frame_width, texture->getHeight());
-    glVertex2f(0.0f, texture->getHeight());
-    glVertex2f(0.0f, 0.0f);
-  glEnd();
-  glPolygonMode(GL_FRONT, GL_FILL);
+    // Bounding Box
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glPolygonMode(GL_FRONT, GL_LINE);
+    glBegin(GL_QUADS);
+      glVertex2f(frame_width, 0.0f);
+      glVertex2f(frame_width, texture->getHeight());
+      glVertex2f(0.0f, texture->getHeight());
+      glVertex2f(0.0f, 0.0f);
+    glEnd();
+    glPolygonMode(GL_FRONT, GL_FILL);
+  }
   
   glPopMatrix();
 }
