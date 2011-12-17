@@ -8,7 +8,7 @@ class Task {
              Task();
              ~Task();
       private:
-              
+              signed int task;
 };
 
 #endif
