@@ -10,7 +10,8 @@
 #include <math.h>
 #include <fstream>
 
-#include "rapidxml.hpp"
+//#include "rapidxml.hpp"
+#include "tinyxml.h"
 #include "functions.h"
 
 using namespace std;

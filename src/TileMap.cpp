@@ -13,65 +13,40 @@ TileMap::~TileMap()
 
 void TileMap::reload()
 {
-  rapidxml::xml_document<> doc;
-  rapidxml::xml_node<> *TileMap;
-  char *buf;
-  Tile *tile;
-  vector<Tile*>::iterator it = tiles.begin();
-  int id;
+  TiXmlNode* xMap;
   
   // Release resources
   clean();
     
   try {
     cout << "Loading " << map_file << "..." << endl;      
-    buf = readFileContents(map_file);
-    doc.parse<0>(buf);
-    TileMap = doc.first_node("map");
+    TiXmlDocument doc(map_file);
+    bool loadOkay = doc.LoadFile();
+    xMap = doc.FirstChild("map");
     
-    if(TileMap != 0)
+    if(xMap != 0)
     {    
-      for(rapidxml::xml_node<> *tile_node = TileMap->first_node("tiles")->first_node("tile"); tile_node != 0; tile_node = tile_node->next_sibling("tile"))
+      for(TiXmlElement* xTile = xMap->FirstChildElement("tiles")->FirstChildElement("tile"); xTile != 0; xTile = xTile->NextSiblingElement("tile"))
       {
-        //sprintf(tile_node->first_node("id")->value(), "%d", &id);
-        //tile = new Tile(tile_node->first_node("name")->value(), tile_node->first_node("sprite")->first_attribute("src")->value());
-        //tiles.insert(it+id, tile);
+        tiles.push_back(new Tile(xTile->Attribute("name"), xTile->FirstChildElement("sprite")->Attribute("src")));
       }
-      
-      /*//position           
-      sscanf(sprite->first_node("position")->first_attribute("x")->value(), "%d", &x);
-      sscanf(sprite->first_node("position")->first_attribute("y")->value(), "%d", &y);
-      //texture
-      texture = new Texture();
-      texture->load((char *)sprite->first_node("texture")->first_attribute("src")->value(),GL_RGBA);
-      sscanf(sprite->first_node("frames")->value(), "%d", &frames);
-      //animation
-      current_frame = 0;
-      counter = 0;
-      frame_width = (float) (texture->getWidth() / frames);
-      offset_x =  frame_width / texture->getWidth();
-      sscanf(sprite->first_node("animation")->first_attribute("time")->value(), "%f", &animation_time);
-      
-      for(rapidxml::xml_node<> *frame = sprite->first_node("animation")->first_node("frame"); frame != 0; frame = frame->next_sibling("frame"))
-      {
-        int value;
-        sscanf(frame->value(), "%d", &value);
-        animation.push_back(value);
-      }*/
     }
-  }catch(...) {
+  }catch(exception& e) {
     cout << "Error loading " << map_file << endl;
-  }                   
+    cout << e.what() << endl;
+  }    
+             
 }
 
 void TileMap::clean()
 {
-  tiles.clear();
+
 }
 
 void TileMap::render()
 {
-     
+  tiles[0]->render(100,100);
+  tiles[1]->render(200,100);
 }
 
 void TileMap::update(float dt)

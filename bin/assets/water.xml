@@ -1,8 +1,7 @@
 <sprite>
   <texture src="assets/map.png" />
   <position x="0" y="0" />
-  <frames>1</frames>
-  <animation time="0">
+  <animation frames="2" time="0">
     <frame>1</frame>
   </animation>
 </sprite>

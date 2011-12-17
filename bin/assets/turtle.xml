@@ -1,9 +1,8 @@
 <sprite>
-        <texture src="assets/turtle.png" />
-        <position x="50" y="0" />
-        <frames>6</frames>
-        <animation time="200">
-          <frame>0</frame>
-          <frame>1</frame>
-        </animation>
+  <texture src="assets/turtle.png" />
+  <position x="50" y="0" />
+  <animation frames="6" time="200">
+    <frame>0</frame>
+    <frame>1</frame>
+  </animation>
 </sprite>

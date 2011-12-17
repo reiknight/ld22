@@ -14,44 +14,43 @@ Sprite::~Sprite()
 
 void Sprite::reload()
 {
-  rapidxml::xml_document<> doc;
-  rapidxml::xml_node<> *sprite;
-  char *buf;
+  TiXmlNode* xSprite;
   
   // Release resources
   clean();
     
   try {
     cout << "Loading " << sprite_file << "..." << endl;      
-    buf = readFileContents(sprite_file);
-    doc.parse<0>(buf);
-    sprite = doc.first_node("sprite");
+    TiXmlDocument doc(sprite_file);
+    bool loadOkay = doc.LoadFile();
+    xSprite = doc.FirstChild("sprite");
     
-    if(sprite != 0)
+    if(xSprite != 0)
     {    
       //position           
-      sscanf(sprite->first_node("position")->first_attribute("x")->value(), "%d", &x);
-      sscanf(sprite->first_node("position")->first_attribute("y")->value(), "%d", &y);
+      sscanf(xSprite->FirstChildElement("position")->Attribute("x"), "%d", &x);
+      sscanf(xSprite->FirstChildElement("position")->Attribute("y"), "%d", &y);
       //texture
       texture = new Texture();
-      texture->load((char *)sprite->first_node("texture")->first_attribute("src")->value(),GL_RGBA);
-      sscanf(sprite->first_node("frames")->value(), "%d", &frames);
+      texture->load((char *)xSprite->FirstChildElement("texture")->Attribute("src"),GL_RGBA);
+      sscanf(xSprite->FirstChildElement("animation")->Attribute("frames"), "%d", &frames);
       //animation
       current_frame = 0;
       counter = 0;
       frame_width = (float) (texture->getWidth() / frames);
       offset_x =  frame_width / texture->getWidth();
-      sscanf(sprite->first_node("animation")->first_attribute("time")->value(), "%f", &animation_time);
+      sscanf(xSprite->FirstChildElement("animation")->Attribute("time"), "%f", &animation_time);
       
-      for(rapidxml::xml_node<> *frame = sprite->first_node("animation")->first_node("frame"); frame != 0; frame = frame->next_sibling("frame"))
+      for(TiXmlElement* frame = xSprite->FirstChildElement("animation")->FirstChildElement("frame"); frame != 0; frame = frame->NextSiblingElement("frame"))
       {
         int value;
-        sscanf(frame->value(), "%d", &value);
+        sscanf(frame->GetText(), "%d", &value);
         animation.push_back(value);
       }
     }
-  }catch(...) {
+  }catch(exception& e) {
     cout << "Error loading " << sprite_file << endl;
+    cout << e.what() << endl;
   }              
 }
 
@@ -71,7 +70,7 @@ void Sprite::update(float dt)
     if(counter > animation_time)
     {
       counter = 0;
-      current_frame = (current_frame + 1) % 3; //TODO: hardcoded
+      current_frame = (current_frame + 1) % animation.size();
     }
   }
 }
@@ -100,15 +99,15 @@ void Sprite::render()
     glDisable(GL_TEXTURE_2D);
   
     // Bounding Box
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glPolygonMode(GL_FRONT, GL_LINE);
-    glBegin(GL_QUADS);
-      glVertex2f(frame_width, 0.0f);
-      glVertex2f(frame_width, texture->getHeight());
-      glVertex2f(0.0f, texture->getHeight());
-      glVertex2f(0.0f, 0.0f);
-    glEnd();
-    glPolygonMode(GL_FRONT, GL_FILL);
+    //glColor3f(0.0f, 0.0f, 0.0f);
+//    glPolygonMode(GL_FRONT, GL_LINE);
+//    glBegin(GL_QUADS);
+//      glVertex2f(frame_width, 0.0f);
+//      glVertex2f(frame_width, texture->getHeight());
+//      glVertex2f(0.0f, texture->getHeight());
+//      glVertex2f(0.0f, 0.0f);
+//    glEnd();
+//    glPolygonMode(GL_FRONT, GL_FILL);
   }
   
   glPopMatrix();
