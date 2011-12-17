@@ -4,11 +4,7 @@ void renderBitmapString(float x, float y, void *font, char *string);
 
 Game::Game()
 {
-  int *animation = new int[3];
-  animation[0] = 0;
-  animation[1] = 1;
-  animation[2] = 2;
-  sprite = new Sprite(0, 0, "test.png", 6, 250, animation);
+  sprite = new Sprite("assets/turtle.xml");
 }
 
 Game::~Game()
@@ -46,7 +42,7 @@ void Game::render()
   glEnd();
   
 	glColor3f(1.0f,1.0f,1.0f);
-	renderBitmapString(250,250,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
+	renderBitmapString(150,150,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
 
   glutSwapBuffers();
 }
@@ -58,9 +54,14 @@ void Game::update(float dt)
 
 void Game::readKeyboard(char key, bool pressed)
 {
-  if(key == 27) {
-    exit(0);
-  }     
+  if(key == GLUT_KEY_F1)
+  {
+    sprite->reload();
+  } else {
+    if(key == 27) {
+      exit(0);
+    }     
+  }
 }
 
 void renderBitmapString(float x, float y, void *font, char *string)

@@ -7,11 +7,14 @@
 class Sprite
 {
   public:
-    Sprite(int x, int y, char *filename, int frames, float animation_time, int animation[]);
+    Sprite(char *filename);
     ~Sprite();
+    void reload();
+    void clean();
     void update(float dt);
     void render();
   private:
+    char *sprite_file;
     int x;
     int y;
     Texture *texture; 
@@ -21,7 +24,7 @@ class Sprite
     float counter;
     float frame_width;
     float offset_x;
-    int *animation;
+    vector<int> animation;
 };
 
 #endif

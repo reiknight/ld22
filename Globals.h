@@ -4,9 +4,14 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <iostream>
+#include <vector>
 #include <map>
 #include <utility>
 #include <math.h>
+#include <fstream>
+
+#include "rapidxml/rapidxml.hpp"
+#include "functions.h"
 
 using namespace std;
 

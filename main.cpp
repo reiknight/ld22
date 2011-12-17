@@ -4,6 +4,7 @@
 void renderCallback();
 void keyDownCallback(unsigned char key, int x, int y);
 void keyUpCallback(unsigned char key, int x, int y);
+void keySpecialCallback(int key, int x, int y);
 void changeSize(int w, int h);
 void idleCallback();
 
@@ -32,6 +33,7 @@ int main(int argc, char **argv)
 	glutDisplayFunc(renderCallback);
 	glutKeyboardFunc(keyDownCallback);		
 	glutKeyboardUpFunc(keyUpCallback);
+	glutSpecialFunc(keySpecialCallback);
 	glutReshapeFunc(changeSize);
 	glutIdleFunc(idleCallback);
 	
@@ -55,6 +57,11 @@ void keyDownCallback(unsigned char key, int x, int y)
 void keyUpCallback(unsigned char key, int x, int y)
 {
   Game::getInstance()->readKeyboard(key, false);     
+}
+
+void keySpecialCallback(int key, int x, int y)
+{
+  Game::getInstance()->readKeyboard(key, true);
 }
 
 void changeSize(int w, int h)

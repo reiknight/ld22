@@ -5,8 +5,8 @@ CPP  = g++.exe -D__DEBUG__
 CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
 RES  = 
-OBJ  = main.o Game.o Timer.o Texture.o Sprite.o $(RES)
-LINKOBJ  = main.o Game.o Timer.o Texture.o Sprite.o $(RES)
+OBJ  = main.o Game.o Timer.o Texture.o Sprite.o functions.o $(RES)
+LINKOBJ  = main.o Game.o Timer.o Texture.o Sprite.o functions.o $(RES)
 LIBS =  -L"C:/Dev-Cpp/lib" -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 corona.lib  -g3 
 INCS =  -I"C:/Dev-Cpp/include" 
 CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
@@ -40,3 +40,6 @@ Texture.o: Texture.cpp
 
 Sprite.o: Sprite.cpp
 	$(CPP) -c Sprite.cpp -o Sprite.o $(CXXFLAGS)
+
+functions.o: functions.cpp
+	$(CPP) -c functions.cpp -o functions.o $(CXXFLAGS)

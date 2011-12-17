@@ -1,23 +1,65 @@
 #include "Sprite.h"
 
-Sprite::Sprite(int x, int y, char *filename, int frames, float animation_time, int *animation)
+Sprite::Sprite(char *filename)
 {
-  this->x = x;
-  this->y = y;
-  texture = new Texture();
-  texture->load(filename,GL_RGBA);
-  this->frames = frames;
-  current_frame = 0;
-  this->animation_time = animation_time;
-  counter = 0;
-  frame_width = (float) (texture->getWidth() / frames);
-  offset_x =  frame_width / texture->getWidth();
-  this->animation = animation;
+  sprite_file = filename;
+  reload();
 }
 
 Sprite::~Sprite()
 {
-  delete texture;
+  clean();
+}
+
+void Sprite::reload()
+{
+  rapidxml::xml_document<> doc;
+  rapidxml::xml_node<> *sprite;
+  char *buf;
+  
+  // Release resources
+  clean();
+    
+  try {
+    cout << "Loading " << sprite_file << "..." << endl;      
+    buf = readFileContents(sprite_file);
+    doc.parse<0>(buf);
+    sprite = doc.first_node("sprite");
+    
+    if(sprite != 0)
+    {    
+      //position           
+      sscanf(sprite->first_node("position")->first_attribute("x")->value(), "%d", &x);
+      sscanf(sprite->first_node("position")->first_attribute("y")->value(), "%d", &y);
+      //texture
+      texture = new Texture();
+      texture->load((char *)sprite->first_node("texture")->first_attribute("src")->value(),GL_RGBA);
+      sscanf(sprite->first_node("frames")->value(), "%d", &frames);
+      //animation
+      current_frame = 0;
+      counter = 0;
+      frame_width = (float) (texture->getWidth() / frames);
+      offset_x =  frame_width / texture->getWidth();
+      sscanf(sprite->first_node("animation")->first_attribute("time")->value(), "%f", &animation_time);
+      
+      for(rapidxml::xml_node<> *frame = sprite->first_node("animation")->first_node("frame"); frame != 0; frame = frame->next_sibling("frame"))
+      {
+        int value;
+        sscanf(frame->value(), "%d", &value);
+        animation.push_back(value);
+      }
+    }
+  }catch(...) {
+    cout << "Error loading " << sprite_file << endl;
+  }              
+}
+
+void Sprite::clean()
+{
+  if(texture != 0)
+    delete texture;
+ 
+  animation.clear();    
 }
 
 void Sprite::update(float dt)
@@ -35,6 +77,8 @@ void Sprite::render()
   glPushMatrix();
   glLoadIdentity();
   glTranslatef(x, y, 0);
+  
+  // Draw texture
   glEnable(GL_TEXTURE_2D);
   glBindTexture(GL_TEXTURE_2D, texture->getId());
   glBegin(GL_QUADS);
