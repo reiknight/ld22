@@ -78,11 +78,11 @@ void changeSize(int w, int h)
   aspectRatio = (GLfloat)w / (GLfloat)h;
   if(w <= h)
   {
-    glOrtho(-300.0, 300.0, -100 / aspectRatio, 300.0 / aspectRatio, 1.0, -1.0);
+    glOrtho(-500.0, 500.0, -100 / aspectRatio, 500.0 / aspectRatio, 1.0, -1.0);
   }
   else
   {
-    glOrtho(-300.0 * aspectRatio, 300.0 * aspectRatio, -300.0, 300.0, 1.0, -1.0);
+    glOrtho(-500.0 * aspectRatio, 500.0 * aspectRatio, -500.0, 500.0, 1.0, -1.0);
   }
   
   glMatrixMode(GL_MODELVIEW);
@@ -96,7 +96,7 @@ void idleCallback()
 
 void setupRC()
 {
-  glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glAlphaFunc(GL_GREATER, 0.05f);
   glEnable(GL_ALPHA_TEST);
 }

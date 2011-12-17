@@ -97,17 +97,6 @@ void Sprite::render()
       glVertex2f(0.0f, 0.0f);
     glEnd();
     glDisable(GL_TEXTURE_2D);
-  
-    // Bounding Box
-    //glColor3f(0.0f, 0.0f, 0.0f);
-//    glPolygonMode(GL_FRONT, GL_LINE);
-//    glBegin(GL_QUADS);
-//      glVertex2f(frame_width, 0.0f);
-//      glVertex2f(frame_width, texture->getHeight());
-//      glVertex2f(0.0f, texture->getHeight());
-//      glVertex2f(0.0f, 0.0f);
-//    glEnd();
-//    glPolygonMode(GL_FRONT, GL_FILL);
   }
   
   glPopMatrix();

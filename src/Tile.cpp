@@ -15,3 +15,8 @@ void Tile::render(int x, int y)
 {
   sprite->render(x,y);
 }
+
+void Tile::update(float dt)
+{
+  sprite->update(dt);
+}

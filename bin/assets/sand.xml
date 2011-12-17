@@ -2,6 +2,6 @@
   <texture src="assets/map.png" />
   <position x="0" y="0" />
   <animation frames="3" time="0">
-    <frame>1</frame>
+    <frame>2</frame>
   </animation>
 </sprite>

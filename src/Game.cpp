@@ -34,6 +34,19 @@ void Game::render()
   map->render();
   sprite->render();
     
+  glBegin(GL_LINES);
+  glColor3f(1.0,0.0f,0.0f);
+  glVertex3f(0,0,0);
+  glVertex3f(300,0,0);
+  glVertex3f(0,0,0);
+  glVertex3f(-300,0,0);
+  glColor3f(0.0,1.0f,0.0f);
+  glVertex3f(0,0,0);
+  glVertex3f(0,300,0);
+  glVertex3f(0,0,0);
+  glVertex3f(0,-300,0);
+  glEnd();  
+  
 	glColor3f(1.0f,1.0f,1.0f);
 	renderBitmapString(450,450,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
 
@@ -50,10 +63,18 @@ void Game::readKeyboard(char key, bool pressed)
 {
   if(key == GLUT_KEY_F1)
   {
+    cout << "Reloading sprite..." << endl;
     sprite->reload();
   } else {
-    if(key == 27) {
-      exit(0);
+    if(key == GLUT_KEY_F2)
+    {
+      cout << "Reloading map..." << endl;
+      map->reload();
+    }       
+    else
+    {
+      if(key == 27) 
+        exit(0);
     }     
   }
 }

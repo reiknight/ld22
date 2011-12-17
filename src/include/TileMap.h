@@ -15,8 +15,13 @@ class TileMap
     void render();
     void update(float dt);
   private:
+    int rows;
+    int cols;
+    int tile_width;
+    int tile_height;
     char *map_file;
     vector<Tile*> tiles;
+    int **tileset;
 };
 
 #endif
