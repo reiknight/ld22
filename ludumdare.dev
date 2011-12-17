@@ -1,7 +1,7 @@
 [Project]
 FileName=ludumdare.dev
 Name=ludumdare
-UnitCount=4
+UnitCount=6
 Type=1
 Ver=1
 ObjFiles=
@@ -86,4 +86,24 @@ OriginalFilename=
 ProductName=
 ProductVersion=
 AutoIncBuildNr=0
+
+[Unit5]
+FileName=Timer.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit6]
+FileName=Timer.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
 

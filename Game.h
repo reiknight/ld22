@@ -2,7 +2,8 @@
 #define CLASS_GAME_H
 
 #include "Globals.h"
- 
+#include "Timer.h"
+
 /**
  * Core class
  */
@@ -36,22 +37,16 @@ class Game
      * Read the keyboard status
      */
     void readKeyboard(char key, bool pressed); 
-    /**
-     * Returns scene manager
-     * @see sm
-     * @see SceneManager
-     * @return Pointer to scene manager.
-     */
-    //SceneManager* getSceneManager();
   private:
     Game();
     Game(Game const&);
     void operator=(Game const&);
     ~Game();
     /**
-     * Handles all scenes aspects.
+     * Ensure Game is executed at the same framerate
+     * on all platforms
      */
-    //SceneManager *sm;
+    Timer timer;
 };
 
 #endif
