@@ -9,7 +9,7 @@ class Worker {
              Worker(signed int life, float happiness);
              ~Worker();
              void changeLife(int inc);
-             void changeTask(int task);
+             void changeTask(int _task);
              void changeHours(int h);
       private:
               signed int life;
