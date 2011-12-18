@@ -1,13 +1,13 @@
 <map>
   <tiles width="32" height="32">
-    <tile id="0" name="grass">
+    <tile id="0">
       <sprite src="assets/grass.xml" />
     </tile>
-    <tile id="1" name="water">
+    <tile id="1">
       <sprite src="assets/water.xml" />
       <resource id="2" />
     </tile>
-    <tile id="2" name="sand">
+    <tile id="2">
       <sprite src="assets/sand.xml" />      
     </tile>
   </tiles>
