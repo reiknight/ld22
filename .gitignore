@@ -1,3 +1,5 @@
 *.o
 *.exe
+bin/Makefile.win
+bin/ludumdare.dev
 bin/ludumdare.layout
