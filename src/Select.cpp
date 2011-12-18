@@ -13,14 +13,11 @@ Select::Select(int _x, int _y, int _w, int _h)
   folded = false;
   button = new Button("assets/select.xml");     
   
-  options.push_back("Option 1");     
-  options.push_back("Option 2");
-  options.push_back("Option 3");
-  options.push_back("Option 4");      
-  options.push_back("Option 5");
-  options.push_back("Option 6");
-  options.push_back("Option 7");
-  options.push_back("Option 8");
+  options.push_back(new Button("assets/wood_button.xml"));     
+  options.push_back(new Button("assets/metal_button.xml"));
+  options.push_back(new Button("assets/water_button.xml"));
+  options.push_back(new Button("assets/oil_button.xml"));
+  options.push_back(new Button("assets/wool_button.xml"));
   
   option_selected = 0;
   time = 0;
@@ -28,6 +25,7 @@ Select::Select(int _x, int _y, int _w, int _h)
 
 Select::~Select()
 {
+  options.clear();
   delete button;                
 }
 
@@ -39,7 +37,7 @@ void Select::render()
   }
   else
   {
-    h = initial_h+300;
+    h = initial_h+100;
   }
   
   glPushMatrix();
@@ -56,19 +54,25 @@ void Select::render()
   glColor3f(1,1,1);
   button->render(x+w - 40, y-initial_h + 35);
 
-  glPushMatrix();
-  glTranslatef(0,GAME_HEIGHT,0);
-  glColor3f(1,0,0);
-  if(!folded)
+  options[option_selected]->render(x, y);
+  if(folded)
   {
-  	renderBitmapString(x+20,y-20,GLUT_BITMAP_HELVETICA_12,options[option_selected]);               
+    int pos_x = x;
+    int pos_y = y;
+    
+    for(int i = 0; i < options.size(); i++)
+    {
+      if((i%4)) {
+        pos_x += 75;
+      }
+      else
+      {
+        pos_y -= 35;
+        pos_x = x;
+      }
+      options[i]->render(pos_x,pos_y);
+    }
   }
-  else
-  {
-    for(int i = 0; i < options.size(); i++)  
-    	renderBitmapString(x+20,y-20-i*35,GLUT_BITMAP_HELVETICA_12,options[i]);   
-  }
-  glPopMatrix();
 }
 
 void Select::update(float dt)
@@ -77,11 +81,14 @@ void Select::update(float dt)
   
   if(folded && time > 200)
   {
-    if(Game::getInstance()->getInputManager()->clickedInside(GLUT_LEFT_BUTTON, x, y, w, h))
+    for(int i = 0; i < options.size(); i++)
     {
-      MouseEvent event = Game::getInstance()->getInputManager()->getLastClick(GLUT_LEFT_BUTTON);
-      option_selected = (event.getPosition().y+y) / 35;
-      folded = false;
+      options[i]->update(dt);
+      if(options[i]->isPressed())
+      {
+        option_selected = i;
+        folded = false;
+      }
     }
   }  
     

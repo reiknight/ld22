@@ -4,4 +4,6 @@
   <texture id="3" src="assets/button.png" />
   <texture id="4" src="assets/select.png" />
   <texture id="5" src="assets/bosque.png" />
+  <texture id="6" src="assets/tasks.png" />
+  <texture id="7" src="assets/petroleo.png" />
 </texture>

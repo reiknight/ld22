@@ -29,7 +29,7 @@ void Scene::reload()
   
   for(int i = 0; i < 10; i++)
   {
-    select = new Select(75, -20-35*i, 200, 30);
+    select = new Select(75, -20-35*i, 300, 30);
     selects.push_back(select);
   }
 }

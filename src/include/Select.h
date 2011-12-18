@@ -20,7 +20,7 @@ class Select
     int initial_h;
     bool folded;
     Button *button;
-    vector<char *> options;
+    vector<Button *> options;
     int option_selected;
     float time;
 };
