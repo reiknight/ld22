@@ -5,20 +5,17 @@
 #include "Sprite.h"
 #include "Worker.h"
 
-class Player {
+class Player : public Sprite {
       public:
-              Player(const char *sprite_file);
+              Player();
               ~Player();
               void incMoney(int inc);
               void incHappiness(int inc);
-              void render(int x, int y);
-              void update(float dt);
       private:
               long int money;
               int n_workers;
               Worker* workers;
               float happiness;
-              Sprite *sprite;
 };
 
 #endif
