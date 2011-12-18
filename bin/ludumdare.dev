@@ -1,7 +1,7 @@
 [Project]
 FileName=ludumdare.dev
 Name=ludumdare
-UnitCount=28
+UnitCount=32
 Type=1
 Ver=1
 ObjFiles=
@@ -327,6 +327,46 @@ BuildCmd=
 
 [Unit28]
 FileName=..\src\Scene.cpp
+CompileCpp=1
+Folder=Source Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit29]
+FileName=..\src\InputManager.cpp
+CompileCpp=1
+Folder=Source Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit30]
+FileName=..\src\include\InputManager.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit31]
+FileName=..\src\include\Vector2D.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit32]
+FileName=..\src\Vector2D.cpp
 CompileCpp=1
 Folder=Source Files
 Compile=1

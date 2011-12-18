@@ -17,12 +17,15 @@ void Game::reload()
   tm = new TextureManager();
   loadTextures();
   
+  im = new InputManager();
+  
   scene = new Scene();
 }
 
 void Game::clean()
 {
   delete tm;
+  delete im;
   delete scene;
 }
 
@@ -57,16 +60,14 @@ void Game::update(float dt)
   scene->update(dt);
 }
 
-void Game::readKeyboard(char key, bool pressed)
+void Game::readMouse(int button, int state, int x, int y)
 {
-  if(key == GLUT_KEY_F1)
-  {
-    cout << "Reloading game..." << endl;
-    reload();
-  } else {
-    if(key == 27) 
-      exit(0);  
-  }
+  im->readMouse(button, state, x, y);     
+}
+
+void Game::readKeyboard(unsigned char key, bool pressed)
+{
+  im->readKeyboard(key, pressed);
 }
 
 TextureManager* Game::getTextureManager()

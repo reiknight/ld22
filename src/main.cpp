@@ -5,6 +5,7 @@ void renderCallback();
 void keyDownCallback(unsigned char key, int x, int y);
 void keyUpCallback(unsigned char key, int x, int y);
 void keySpecialCallback(int key, int x, int y);
+void mouseCallback(int button, int state, int x, int y);
 void changeSize(int w, int h);
 void idleCallback();
 
@@ -34,6 +35,7 @@ int main(int argc, char **argv)
 	glutKeyboardFunc(keyDownCallback);		
 	glutKeyboardUpFunc(keyUpCallback);
 	glutSpecialFunc(keySpecialCallback);
+	glutMouseFunc(mouseCallback);
 	glutReshapeFunc(changeSize);
 	glutIdleFunc(idleCallback);
 	
@@ -63,6 +65,11 @@ void keyUpCallback(unsigned char key, int x, int y)
 void keySpecialCallback(int key, int x, int y)
 {
   Game::getInstance()->readKeyboard(key, true);
+}
+
+void mouseCallback(int button, int state, int x, int y)
+{
+  Game::getInstance()->readMouse(button, state, x, y);
 }
 
 void changeSize(int w, int h)

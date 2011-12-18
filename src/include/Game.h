@@ -4,6 +4,7 @@
 #include "Globals.h"
 #include "Timer.h"
 #include "TextureManager.h"
+#include "InputManager.h"
 #include "Scene.h"
 
 /**
@@ -40,8 +41,10 @@ class Game
     /***
      * Read the keyboard status
      */
-    void readKeyboard(char key, bool pressed);
+    void readKeyboard(unsigned char key, bool pressed);
+    void readMouse(int button, int state, int x, int y);
     TextureManager* getTextureManager();
+    InputManager* getInputManager();
   private:
     Game();
     Game(Game const&);
@@ -54,6 +57,7 @@ class Game
      */
     Timer timer;
     TextureManager *tm;
+    InputManager *im;
     Scene *scene;
 };
 
