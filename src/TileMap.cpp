@@ -1,4 +1,5 @@
 #include "TileMap.h"
+#include "Game.h"
 
 TileMap::TileMap(char *filename)
 {
@@ -99,7 +100,27 @@ void TileMap::clean()
 
 void TileMap::render()
 {
-  int x = -((cols/2)*tile_width); 
+   /*int Xo = map->coord_x / map->tile_width;
+   int Yo = map->coord_y / map->tile_height;
+
+   int Xf = Xo + map->scene_width - 1;
+   int Yf = Yo + map->scene_height - 1;*/
+
+   int pos_x = 0;
+   int pos_y = 0;
+
+   for(int i=0; i<rows; i++)
+   {
+      for(int j=0; j<cols; j++)
+      {
+         tiles[tileset[i][j]]->render(pos_x,pos_y);
+         pos_x += tile_width;
+      }
+      pos_x = 0;
+      pos_y -= tile_height;
+   }
+   
+  /*int x = -((cols/2)*tile_width); 
   int y = ((rows/2)-1)*tile_height;
   
   for(int i = 0; i < rows; i++)
@@ -111,7 +132,7 @@ void TileMap::render()
     }
     x = -((cols/2)*tile_width);
     y -= tile_height;
-  }
+  }*/
 }
 
 void TileMap::update(float dt)
@@ -119,5 +140,23 @@ void TileMap::update(float dt)
   for(int i = 0; i < tiles.size(); i++)
   {
     tiles[i]->update(dt);
-  }  
+  }
+  
+  //TODO: seleccion recurso
+  Tile *tile_clicked = checkClick();
+}
+
+Tile* TileMap::checkClick()
+{
+  InputManager *im = Game::getInstance()->getInputManager();
+  MouseEvent lastClick = im->getLastClick(GLUT_LEFT_BUTTON);
+
+  if(lastClick.isPressed())
+  {
+    int i = lastClick.getPosition().y / tile_height;
+    int j = lastClick.getPosition().x / tile_width;
+    return tiles[tileset[i][j]];
+  }
+    
+  return 0;
 }

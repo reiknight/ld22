@@ -63,6 +63,9 @@ void Game::update(float dt)
 {
   if(im->keyPressed(27))
     exit(0);
+
+  if(im->keyPressed(GLUT_KEY_F1))
+    scene->reload();
     
   scene->update(dt);
 }
@@ -82,7 +85,14 @@ TextureManager* Game::getTextureManager()
   return tm;
 }
 
+InputManager* Game::getInputManager()
+{
+  return im;
+}
+
 ResourceManager* Game::getResourceManager()
 {
   return rm;
 }
+
+

@@ -16,10 +16,4 @@
 
 using namespace std;
 
-#define GAME_WIDTH 640
-#define GAME_HEIGHT 480
-
-#define SCENE_WIDTH 300
-#define SCENE_HEIGHT 300
-
 #endif

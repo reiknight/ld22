@@ -1,8 +1,9 @@
 <sprite>
-  <position x="50" y="0" />
+  <position x="300" y="-300" />
   <texture id="1" />
   <animation frames="6" time="200">
-    <frame>0</frame>
-    <frame>1</frame>
+    <frame>3</frame>
+    <frame>4</frame>
+    <frame>5</frame>
   </animation>
 </sprite>

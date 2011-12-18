@@ -10,6 +10,7 @@ class Tile : public Sprite
   public:
     Tile(const char *sprite_file, int resource_id);
     ~Tile();
+    Resource* getResource();
   private:
     Resource *resource;
 };

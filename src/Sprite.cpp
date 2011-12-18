@@ -78,22 +78,42 @@ void Sprite::render()
 {
   glPushMatrix();
   glLoadIdentity();
-  glTranslatef(x, y, 0);
-  
+  //glTranslatef(-SCENE_WIDTH, SCENE_HEIGHT,0);
+  //glTranslatef(x, y, 0);
+  glTranslatef(0,GAME_HEIGHT,0);
   // Draw texture
   if(texture != 0)
   {
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texture->getId());
     glBegin(GL_QUADS);
-      glTexCoord2f((animation[current_frame] + 1) * offset_x, 1.0f);  
-      glVertex2f(frame_width, 0.0f);
-      glTexCoord2f((animation[current_frame] + 1) * offset_x, 0.0f);
-      glVertex2f(frame_width, texture->getHeight());
-      glTexCoord2f(animation[current_frame] * offset_x, 0.0f);
-      glVertex2f(0.0f, texture->getHeight());
+      /***
+      *   (0,0)-->+x                   ^
+      *   |-y                          |-y
+      *   v                           (0,0)--->+x
+      *    
+      *   A(x,y)---------B(x+w,y)      tx0,ty0-h      tx0+w,ty0-h
+      *   |              |
+      *   |              | 
+      *   D(x,y-h)-------C(x+w,y-h)    tx0,ty0        tx0+w,ty0
+      ***/
+
+      //A
       glTexCoord2f(animation[current_frame] * offset_x, 1.0f);
-      glVertex2f(0.0f, 0.0f);
+      glVertex2f(x, y-texture->getHeight());
+            
+      //B
+      glTexCoord2f((animation[current_frame] + 1) * offset_x, 1.0f);  
+      glVertex2f(x+frame_width, y-texture->getHeight());
+      
+      //C
+      glTexCoord2f((animation[current_frame] + 1) * offset_x, 0.0f);
+      glVertex2f(x+frame_width, y);
+      
+      //D
+      glTexCoord2f(animation[current_frame] * offset_x, 0.0f);
+      glVertex2f(x, y);
+      
     glEnd();
     glDisable(GL_TEXTURE_2D);
   }

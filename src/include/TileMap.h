@@ -4,6 +4,7 @@
 #include "Globals.h"
 #include "Sprite.h"
 #include "Tile.h"
+#include "Vector2D.h"
 
 class TileMap
 {
@@ -22,6 +23,7 @@ class TileMap
     char *map_file;
     vector<Tile*> tiles;
     int **tileset;
+    Tile* checkClick();
 };
 
 #endif

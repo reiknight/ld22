@@ -10,6 +10,8 @@ class Scene
   public:
     Scene();
     ~Scene();
+    void reload();
+    void clean();
     void render();
     void update(float dt);
   private:

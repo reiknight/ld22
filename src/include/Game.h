@@ -8,6 +8,9 @@
 #include "ResourceManager.h"
 #include "Scene.h"
 
+#define GAME_WIDTH 640
+#define GAME_HEIGHT 480
+
 /**
  * Core class
  */

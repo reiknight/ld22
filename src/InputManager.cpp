@@ -1,14 +1,14 @@
 #include "InputManager.h"
 
+
 InputManager::InputManager()
 {
-  for(int i = 0 ; i < 256; i++)   { keys[i] = false;                     }                            
-  for(int i = 0 ; i < 3; i++)     { buttons[i] = Vector2D(-9000, 9000);  }
+  for(int i = 0 ; i < 256; i++)   { keys[i] = false; }                            
 }
 
 InputManager::~InputManager()
 {
-
+  delete[] buttons;
 }
 
 void InputManager::readKeyboard(unsigned char key, bool pressed)
@@ -17,11 +17,8 @@ void InputManager::readKeyboard(unsigned char key, bool pressed)
 }
 
 void InputManager::readMouse(int button, int state, int x, int y)
-{
-  if(state == GLUT_DOWN)
-    buttons[button] = Vector2D(x-GAME_WIDTH/2,y-GAME_HEIGHT/2);
-  else
-    buttons[button] = Vector2D(-9000, 9000);
+{  
+  buttons[button] = MouseEvent(state, x, y);
 }
 
 bool InputManager::keyPressed(unsigned char key)
@@ -31,5 +28,10 @@ bool InputManager::keyPressed(unsigned char key)
 
 bool InputManager::clickedInside(int button, int x, int y, int w, int h)
 {
-  return buttons[button].x >= x && buttons[button].x <= x+w && buttons[button].y <= y && buttons[button].y >= y-h;
+  return buttons[button].getPosition().x >= x && buttons[button].getPosition().x <= x+w && buttons[button].getPosition().y <= y && buttons[button].getPosition().y >= y-h;
+}
+
+MouseEvent InputManager::getLastClick(int button)
+{
+  return buttons[button];
 }

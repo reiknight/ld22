@@ -5,8 +5,9 @@ void renderCallback();
 void keyDownCallback(unsigned char key, int x, int y);
 void keyUpCallback(unsigned char key, int x, int y);
 void keySpecialCallback(int key, int x, int y);
+void keySpecialUpCallback(int key, int x, int y);
 void mouseCallback(int button, int state, int x, int y);
-void changeSize(int w, int h);
+//void changeSize(int w, int h);
 void idleCallback();
 
 void setupRC();
@@ -35,8 +36,9 @@ int main(int argc, char **argv)
 	glutKeyboardFunc(keyDownCallback);		
 	glutKeyboardUpFunc(keyUpCallback);
 	glutSpecialFunc(keySpecialCallback);
+  glutSpecialUpFunc(keySpecialUpCallback);
 	glutMouseFunc(mouseCallback);
-	glutReshapeFunc(changeSize);
+	//glutReshapeFunc(changeSize);
 	glutIdleFunc(idleCallback);
 	
 	//Setup Render Context
@@ -67,12 +69,17 @@ void keySpecialCallback(int key, int x, int y)
   Game::getInstance()->readKeyboard(key, true);
 }
 
+void keySpecialUpCallback(int key, int x, int y)
+{
+  Game::getInstance()->readKeyboard(key, false);
+}
+
 void mouseCallback(int button, int state, int x, int y)
 {
   Game::getInstance()->readMouse(button, state, x, y);
 }
 
-void changeSize(int w, int h)
+/*void changeSize(int w, int h)
 {
   GLfloat aspectRatio;
 
@@ -95,7 +102,7 @@ void changeSize(int w, int h)
   
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();	 
-}
+}*/
 
 void idleCallback()
 {
@@ -104,7 +111,13 @@ void idleCallback()
 
 void setupRC()
 {
-  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-  glAlphaFunc(GL_GREATER, 0.05f);
-  glEnable(GL_ALPHA_TEST);
+  //Graphics initialization
+	glClearColor(0.0f,0.0f,0.0f,0.0f);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0,GAME_WIDTH,0,GAME_HEIGHT,0,1);
+	glMatrixMode(GL_MODELVIEW);
+	
+	glAlphaFunc(GL_GREATER, 0.05f);
+	glEnable(GL_ALPHA_TEST);
 }

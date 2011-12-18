@@ -2,22 +2,40 @@
 
 Scene::Scene()
 {
-  map = new TileMap("assets/map.xml");              
-  sprite = new Sprite("assets/turtle.xml");
+  map = 0;
+  sprite = 0;
+  
+  reload();
 }
 
 Scene::~Scene()
 {
-  delete map;  
-  delete sprite;            
+  clean();
 }
 
+void Scene::reload()
+{
+  clean();
+  
+  map = new TileMap("assets/map.xml");              
+  sprite = new Sprite("assets/turtle.xml");  
+}
+
+void Scene::clean()
+{
+  if(map != 0)
+    delete map;  
+  
+  if(sprite != 0)
+    delete sprite; 
+}
+    
 void Scene::render()
 {
   map->render();
   sprite->render();
   
-  drawAxis();
+  //drawAxis();
 }
 
 void Scene::update(float dt)
