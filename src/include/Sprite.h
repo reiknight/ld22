@@ -14,7 +14,8 @@ class Sprite
     void update(float dt);
     void render();
     void render(int _x, int _y);
-    float distance(Sprite p);
+    float euclidean(Sprite p); //Euclidean distance (d_2)
+    int distance(Sprite p); //Absolute distance (d_1)
   private:
     char *sprite_file;
     int x;
