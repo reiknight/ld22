@@ -11,6 +11,7 @@ class Select
     ~Select();
     void render();
     void update(float dt);
+    bool isFolded();
   private:
     int x;
     int y;

@@ -23,7 +23,7 @@ class Scene
     bool end_turn;
     float time;
     float turn_time;
-    Select *select;
+    vector<Select*> selects;
 };
 
 #endif

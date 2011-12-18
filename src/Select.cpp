@@ -80,7 +80,7 @@ void Select::update(float dt)
     if(Game::getInstance()->getInputManager()->clickedInside(GLUT_LEFT_BUTTON, x, y, w, h))
     {
       MouseEvent event = Game::getInstance()->getInputManager()->getLastClick(GLUT_LEFT_BUTTON);
-      option_selected = (event.getPosition().y-20) / 35;
+      option_selected = (event.getPosition().y+y) / 35;
       folded = false;
     }
   }  
@@ -91,4 +91,9 @@ void Select::update(float dt)
     folded = !folded; 
     time = 0;
   }
+}
+
+bool Select::isFolded()
+{
+  return folded;  
 }

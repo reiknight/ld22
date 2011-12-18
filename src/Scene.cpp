@@ -6,7 +6,6 @@ Scene::Scene()
   map = 0;
   player = 0;
   button = 0;
-  select = 0;
   end_turn = true;
   time = 0;
   turn_time = 10000; // 10s
@@ -21,12 +20,18 @@ Scene::~Scene()
 
 void Scene::reload()
 {
+  Select *select;
   clean();
   
   map = new TileMap("assets/map.xml");              
   player = new Player("assets/player.xml"); 
   button = new Button("assets/button.xml");
-  select = new Select(75, -20, 200, 30);
+  
+  for(int i = 0; i < 10; i++)
+  {
+    select = new Select(75, -20-35*i, 200, 30);
+    selects.push_back(select);
+  }
 }
 
 void Scene::clean()
@@ -40,12 +45,13 @@ void Scene::clean()
   if(button != 0)
     delete button; 
     
-  if(select != 0)
-    delete select;
+  selects.clear();
 }
     
 void Scene::render()
 {
+  int last_render = -1;
+  
   if(!end_turn)
   {
     map->render();
@@ -59,8 +65,17 @@ void Scene::render()
   else
   {
     button->render();
-    select->render();
     
+    for(int i = 0; i < 10; i++)
+    {
+      if(selects[i]->isFolded())
+        last_render = i;
+      else
+        selects[i]->render();
+    }
+    if(last_render != -1)
+      selects[last_render]->render();    
+      
     glPushMatrix();
     glTranslatef(0,GAME_HEIGHT,0);
     glColor3f(1.0f,1.0f,1.0f);
@@ -74,6 +89,8 @@ void Scene::render()
 
 void Scene::update(float dt)
 {
+  int update_folded = -1;
+  
   time += dt;
   
   if(!end_turn)
@@ -87,7 +104,24 @@ void Scene::update(float dt)
   else
   {
     button->update(dt);
-    select->update(dt);
+    
+    for(int i = 0; i < 10; i++)
+    {
+      if(selects[i]->isFolded())
+        update_folded = i;
+    }
+
+    if(update_folded == -1)
+    {
+      for(int i = 0; i < 10; i++)
+      {
+        selects[i]->update(dt);
+      }
+    }
+    else
+    {
+      selects[update_folded]->update(dt);  
+    }
         
     if(button->isPressed())
     {
