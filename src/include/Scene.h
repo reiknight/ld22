@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "TileMap.h"
 #include "Button.h"
+#include "Select.h"
 
 class Scene
 {
@@ -22,6 +23,7 @@ class Scene
     bool end_turn;
     float time;
     float turn_time;
+    Select *select;
 };
 
 #endif

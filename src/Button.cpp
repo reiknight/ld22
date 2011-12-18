@@ -3,7 +3,8 @@
 
 Button::Button(char *sprite_file) : Sprite(sprite_file)
 {
-  pressed = false;          
+  pressed = false;
+  time = 0;          
 }
 
 Button::~Button()
@@ -14,11 +15,22 @@ Button::~Button()
 void Button::update(float dt)
 {
   Sprite::update(dt);
-  pressed = Game::getInstance()->getInputManager()->clickedInside(GLUT_LEFT_BUTTON, x, y, texture->getWidth(), texture->getHeight());
+      
+  time += dt;
+  if(time > 150)
+  {
+    pressed = Game::getInstance()->getInputManager()->clickedInside(GLUT_LEFT_BUTTON, x, y, texture->getWidth(), texture->getHeight());
+    time = 0;
+  }
 }
 
 bool Button::isPressed()
 {
-  return pressed;    
+  if(pressed)
+  {
+    pressed = false;
+    return true;    
+  }
+  return false;
 }
 

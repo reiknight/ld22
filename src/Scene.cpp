@@ -6,7 +6,8 @@ Scene::Scene()
   map = 0;
   player = 0;
   button = 0;
-  end_turn = false;
+  select = 0;
+  end_turn = true;
   time = 0;
   turn_time = 10000; // 10s
   
@@ -25,6 +26,7 @@ void Scene::reload()
   map = new TileMap("assets/map.xml");              
   player = new Player("assets/player.xml"); 
   button = new Button("assets/button.xml");
+  select = new Select(75, -20, 200, 30);
 }
 
 void Scene::clean()
@@ -37,6 +39,9 @@ void Scene::clean()
     
   if(button != 0)
     delete button; 
+    
+  if(select != 0)
+    delete select;
 }
     
 void Scene::render()
@@ -54,13 +59,14 @@ void Scene::render()
   else
   {
     button->render();
+    select->render();
     
     glPushMatrix();
     glTranslatef(0,GAME_HEIGHT,0);
     glColor3f(1.0f,1.0f,1.0f);
   	for(int i = 0; i < 10; i++)
   	{
-     	renderBitmapString(10,-i*30,GLUT_BITMAP_HELVETICA_12,"worker");
+     	renderBitmapString(10,-i*40,GLUT_BITMAP_HELVETICA_12,"worker");
     }
     glPopMatrix();
   }
@@ -81,6 +87,8 @@ void Scene::update(float dt)
   else
   {
     button->update(dt);
+    select->update(dt);
+        
     if(button->isPressed())
     {
       time = 0;

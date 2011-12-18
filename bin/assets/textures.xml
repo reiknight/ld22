@@ -1,5 +1,6 @@
 <textures>
-  <texture id="1" src="assets/turtle.png" />
+  <texture id="1" src="assets/ciudad.png" />
   <texture id="2" src="assets/map.png" />
   <texture id="3" src="assets/button.png" />
+  <texture id="4" src="assets/select.png" />
 </texture>

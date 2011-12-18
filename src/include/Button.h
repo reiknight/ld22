@@ -13,6 +13,7 @@ class Button : public Sprite
     bool isPressed();
   private:
     bool pressed;
+    float time;
 };
 
 #endif
