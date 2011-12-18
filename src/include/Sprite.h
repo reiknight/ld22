@@ -11,16 +11,17 @@ class Sprite
     ~Sprite();
     void reload();
     void clean();
-    void update(float dt);
+    virtual void update(float dt);
     void render();
     void render(int _x, int _y);
     float euclidean(Sprite p); //Euclidean distance (d_2)
     int distance(Sprite p); //Absolute distance (d_1)
-  private:
-    char *sprite_file;
+  protected:
     int x;
     int y;
     Texture *texture; 
+  private:
+    char *sprite_file;
     int frames;
     int current_frame;
     float animation_time;

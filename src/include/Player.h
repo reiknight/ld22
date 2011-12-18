@@ -7,7 +7,7 @@
 
 class Player : public Sprite {
       public:
-              Player();
+              Player(char *sprite_file);
               ~Player();
               void incMoney(int inc);
               void incHappiness(int inc);

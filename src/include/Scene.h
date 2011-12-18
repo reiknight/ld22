@@ -2,8 +2,9 @@
 #define CLASS_SCENE_H
 
 #include "Globals.h"
-#include "Sprite.h"
+#include "Player.h"
 #include "TileMap.h"
+#include "Button.h"
 
 class Scene
 {
@@ -16,7 +17,11 @@ class Scene
     void update(float dt);
   private:
     TileMap *map;  
-    Sprite *sprite;
+    Player *player;
+    Button *button;
+    bool end_turn;
+    float time;
+    float turn_time;
 };
 
 #endif

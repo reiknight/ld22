@@ -43,7 +43,7 @@ void Game::loop()
 }
 
 void Game::render()
-{
+{  
   int x,y;
   char* fps = new char[30];
   
@@ -53,8 +53,8 @@ void Game::render()
 
   scene->render();
   
-	glColor3f(1.0f,1.0f,1.0f);
-	renderBitmapString(450,450,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
+	//glColor3f(1.0f,1.0f,1.0f);
+	//renderBitmapString(450,450,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
 
   glutSwapBuffers();
 }

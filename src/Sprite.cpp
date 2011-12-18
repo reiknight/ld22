@@ -77,10 +77,8 @@ void Sprite::update(float dt)
 void Sprite::render()
 {
   glPushMatrix();
-  glLoadIdentity();
-  //glTranslatef(-SCENE_WIDTH, SCENE_HEIGHT,0);
-  //glTranslatef(x, y, 0);
   glTranslatef(0,GAME_HEIGHT,0);
+  
   // Draw texture
   if(texture != 0)
   {

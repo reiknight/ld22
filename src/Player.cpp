@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player() : Sprite("assets/player.xml") {
+Player::Player(char *sprite_file) : Sprite(sprite_file) {
    money = 0; //No score in the beginning
    happiness = 0; //No happiness
    n_workers = 10;

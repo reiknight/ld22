@@ -28,7 +28,10 @@ bool InputManager::keyPressed(unsigned char key)
 
 bool InputManager::clickedInside(int button, int x, int y, int w, int h)
 {
-  return buttons[button].getPosition().x >= x && buttons[button].getPosition().x <= x+w && buttons[button].getPosition().y <= y && buttons[button].getPosition().y >= y-h;
+  if(buttons[button].isPressed()) {
+    return buttons[button].getPosition().x >= x && buttons[button].getPosition().x <= x+w && -1*buttons[button].getPosition().y <= y && -1*buttons[button].getPosition().y >= y-h;
+  }
+  return false;
 }
 
 MouseEvent InputManager::getLastClick(int button)
