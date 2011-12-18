@@ -1,5 +1,5 @@
-#ifndef CLASS_WORKER_H
-#define CLASS_WORKER_H
+#ifndef CLASS_RESOURCE_H
+#define CLASS_RESOURCE_H
 
 #include "Globals.h"
 #include "Sprite.h"
