@@ -4,16 +4,13 @@
 #include "Globals.h"
 #include "Sprite.h"
 
-class Tile
+class Tile : public Sprite
 {
   public:
     Tile(const char *_name, const char *sprite_file);
     ~Tile();
-    void render(int x, int y);
-    void update(float dt);
   private:
     char *name;
-    Sprite *sprite;
 };
 
 #endif
