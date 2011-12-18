@@ -107,3 +107,9 @@ void Sprite::render(int _x, int _y)
   y = _y;
   render();
 }
+
+float Sprite::distance(Sprite p) {
+      int A = x - p.x;
+      int B = y - p.y;
+      return sqrt(pow(A,2) + pow(B,2)); //SQRT((x-a)² + (x-b)²)
+}

@@ -14,6 +14,7 @@ class Sprite
     void update(float dt);
     void render();
     void render(int _x, int _y);
+    float distance(Sprite p);
   private:
     char *sprite_file;
     int x;
