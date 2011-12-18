@@ -375,3 +375,6 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit34]
+FileName=..\src\EventManager.cpp
+

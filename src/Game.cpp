@@ -57,6 +57,12 @@ void Game::render()
 
 void Game::update(float dt)
 {
+  if(im->keyPressed(27))
+    exit(0);
+    
+  if(im->clickedInside(GLUT_LEFT_BUTTON, -100, 100, 200, 200))
+    exit(0);
+    
   scene->update(dt);
 }
 
