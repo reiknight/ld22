@@ -1,13 +1,9 @@
 #include "Resource.h"
 
-Resource::Resource() : Sprite("assets/resource.xml") {
-   distance = 0;
-   isPrime = 0;
-   hours = 1;
-}
-
-Resource::Resource(int _distance) : Sprite("assets/resource.xml") {
-   distance = _distance;
-   isPrime = 1;
-   hours = 1;
+Resource::Resource(int _id, char *_name, int category, int time)
+{
+  id = _id;
+  name = _name;                      
+  isPrime = category == 0;
+  hours = time;
 }

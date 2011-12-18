@@ -5,6 +5,7 @@
 #include "Timer.h"
 #include "TextureManager.h"
 #include "InputManager.h"
+#include "ResourceManager.h"
 #include "Scene.h"
 
 /**
@@ -45,12 +46,12 @@ class Game
     void readMouse(int button, int state, int x, int y);
     TextureManager* getTextureManager();
     InputManager* getInputManager();
+    ResourceManager* getResourceManager();
   private:
     Game();
     Game(Game const&);
     void operator=(Game const&);
     ~Game();
-    void loadTextures();
     /**
      * Ensure Game is executed at the same framerate
      * on all platforms
@@ -58,6 +59,7 @@ class Game
     Timer timer;
     TextureManager *tm;
     InputManager *im;
+    ResourceManager *rm;
     Scene *scene;
 };
 

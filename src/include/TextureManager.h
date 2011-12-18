@@ -9,8 +9,8 @@ class TextureManager
   public:
     TextureManager();
     ~TextureManager();
-    void setTexture(int id, char *filename);
     Texture* getTexture(int id);
+    void loadTextures(char *filename);
   private:
     vector<Texture*> textures;     
 };

@@ -15,9 +15,12 @@ void Game::reload()
   clean();
   
   tm = new TextureManager();
-  loadTextures();
+  tm->loadTextures("assets/textures.xml");
   
   im = new InputManager();
+  
+  rm = new ResourceManager();
+  rm->loadResources("assets/resources.xml");
   
   scene = new Scene();
 }
@@ -26,6 +29,7 @@ void Game::clean()
 {
   delete tm;
   delete im;
+  delete rm;
   delete scene;
 }
 
@@ -81,24 +85,7 @@ TextureManager* Game::getTextureManager()
   return tm;
 }
 
-void Game::loadTextures()
+ResourceManager* Game::getResourceManager()
 {
-  TiXmlNode* xTextures;   
-  char *textures_file = "assets/textures.xml";
-  int texture_id;
-  
-  if(tm != 0)
-  {
-    cout << "Loading " << textures_file << "..." << endl;      
-    TiXmlDocument doc(textures_file);
-    bool loadOkay = doc.LoadFile();
-    xTextures = doc.FirstChild("textures");
-    
-    for(TiXmlElement* texture = xTextures->FirstChildElement("texture"); texture != 0; texture = texture->NextSiblingElement("texture"))
-    {
-        cout << "\tLoading texture " << texture->Attribute("src") << "..." << endl;                            
-        sscanf(texture->Attribute("id"), "%d", &texture_id);
-        tm->setTexture(texture_id, (char *) texture->Attribute("src"));              
-    }
-  }
+  return rm;
 }
