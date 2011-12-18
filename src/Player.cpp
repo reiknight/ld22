@@ -3,7 +3,8 @@
 Player::Player(const char *sprite_file) {
    money = 0; //No score in the beginning
    happiness = 0; //No happiness
-   workers = 10;
+   n_workers = 10;
+   workers = new Worker[10];
    sprite = new Sprite((char *)sprite_file);
 }
 

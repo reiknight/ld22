@@ -3,6 +3,7 @@
 
 #include "Globals.h"
 #include "Sprite.h"
+#include "Worker.h"
 
 class Player {
       public:
@@ -14,7 +15,8 @@ class Player {
               void update(float dt);
       private:
               long int money;
-              int workers;
+              int n_workers;
+              Worker* workers;
               float happiness;
               Sprite *sprite;
 };

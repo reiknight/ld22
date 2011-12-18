@@ -7,6 +7,7 @@
 
 class Worker : public Sprite {
       public:
+             Worker();
              Worker(const char *sprite_file);
              Worker(signed int life, float happiness, const char *sprite_file);
              ~Worker();
