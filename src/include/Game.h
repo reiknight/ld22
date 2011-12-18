@@ -5,6 +5,7 @@
 #include "Timer.h"
 #include "Sprite.h"
 #include "TileMap.h"
+#include "TextureManager.h"
 
 /**
  * Core class
@@ -22,6 +23,8 @@ class Game
       static Game instance;
       return &instance;
     }
+    void reload();
+    void clean();
     /**
      * Game loop
      */
@@ -38,7 +41,8 @@ class Game
     /***
      * Read the keyboard status
      */
-    void readKeyboard(char key, bool pressed); 
+    void readKeyboard(char key, bool pressed);
+    TextureManager* getTextureManager();
   private:
     Game();
     Game(Game const&);
@@ -49,8 +53,10 @@ class Game
      * on all platforms
      */
     Timer timer;
-    Sprite *sprite;
-    TileMap *map;
+    //Sprite *sprite;
+    //TileMap *map;
+    TextureManager *tm;
+    void loadTextures();
 };
 
 #endif

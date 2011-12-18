@@ -19,3 +19,28 @@ char* readFileContents(char *filename)
  
   return buf;
 }
+
+void renderBitmapString(float x, float y, void *font, char *string)
+{
+  char *c;
+  glRasterPos2f(x, y);
+  for (c=string; *c != '\0'; c++) {
+    glutBitmapCharacter(font, *c);
+  }
+}
+
+void drawAxis()
+{
+  glBegin(GL_LINES);
+  glColor3f(1.0,0.0f,0.0f);
+  glVertex3f(0,0,0);
+  glVertex3f(SCENE_WIDTH,0,0);
+  glVertex3f(0,0,0);
+  glVertex3f(-SCENE_WIDTH,0,0);
+  glColor3f(0.0,1.0f,0.0f);
+  glVertex3f(0,0,0);
+  glVertex3f(0,SCENE_HEIGHT,0);
+  glVertex3f(0,0,0);
+  glVertex3f(0,-SCENE_HEIGHT,0);
+  glEnd();      
+}

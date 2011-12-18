@@ -1,6 +1,6 @@
 <sprite>
-  <texture src="assets/turtle.png" />
   <position x="50" y="0" />
+  <texture id="1" />
   <animation frames="6" time="200">
     <frame>0</frame>
     <frame>1</frame>

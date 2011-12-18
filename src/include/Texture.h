@@ -7,14 +7,14 @@
 class Texture
 {
   public:
-    Texture();
+    Texture(char *filename);
     ~Texture();
-    bool load(const char *filename,int type = GL_RGBA,int wraps = GL_REPEAT,int wrapt = GL_REPEAT, 
-      int magf = GL_NEAREST,int minf = GL_NEAREST,bool mipmap = false);
     GLuint getId();
     int getWidth();
     int getHeight();
   private:
+    bool load(const char *filename,int type = GL_RGBA,int wraps = GL_REPEAT,int wrapt = GL_REPEAT, 
+      int magf = GL_NEAREST,int minf = GL_NEAREST,bool mipmap = false);
     GLuint id;
     int width;
     int height;

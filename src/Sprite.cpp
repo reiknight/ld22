@@ -15,6 +15,7 @@ Sprite::~Sprite()
 void Sprite::reload()
 {
   TiXmlNode* xSprite;
+  int texture_id;
   
   // Release resources
   clean();
@@ -31,12 +32,12 @@ void Sprite::reload()
       sscanf(xSprite->FirstChildElement("position")->Attribute("x"), "%d", &x);
       sscanf(xSprite->FirstChildElement("position")->Attribute("y"), "%d", &y);
       //texture
-      texture = new Texture();
-      texture->load((char *)xSprite->FirstChildElement("texture")->Attribute("src"),GL_RGBA);
-      sscanf(xSprite->FirstChildElement("animation")->Attribute("frames"), "%d", &frames);
-      //animation
+      sscanf(xSprite->FirstChildElement("texture")->Attribute("id"), "%d", &texture_id);
+      texture = Game::getInstance()->getTextureManager()->getTexture(texture_id);
+      //animation      
       current_frame = 0;
       counter = 0;
+      sscanf(xSprite->FirstChildElement("animation")->Attribute("frames"), "%d", &frames);
       frame_width = (float) (texture->getWidth() / frames);
       offset_x =  frame_width / texture->getWidth();
       sscanf(xSprite->FirstChildElement("animation")->Attribute("time"), "%f", &animation_time);

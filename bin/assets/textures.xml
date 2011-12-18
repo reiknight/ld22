@@ -1,0 +1,4 @@
+<textures>
+  <texture id="1" src="assets/turtle.png" />
+  <texture id="2" src="assets/map.png" />
+</texture>

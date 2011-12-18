@@ -14,7 +14,7 @@ TileMap::~TileMap()
 
 void TileMap::reload()
 {
-  TiXmlNode* xMap;
+  /*TiXmlNode* xMap;
   
   // Release resources
   clean();
@@ -72,13 +72,13 @@ void TileMap::reload()
   }catch(exception& e) {
     cout << "Error loading " << map_file << endl;
     cout << e.what() << endl;
-  }    
+  }    */
              
 }
 
 void TileMap::clean()
 {
-  tiles.clear();
+  /*tiles.clear();
   
   if(tileset != 0)
   {
@@ -87,12 +87,12 @@ void TileMap::clean()
       delete[] tileset[i];
     }
     delete[] tileset;
-  }
+  }*/
 }
 
 void TileMap::render()
 {
-  int x = -((cols/2)*tile_width); 
+  /*int x = -((cols/2)*tile_width); 
   int y = ((rows/2)-1)*tile_height;
   
   for(int i = 0; i < rows; i++)
@@ -104,13 +104,13 @@ void TileMap::render()
     }
     x = -((cols/2)*tile_width);
     y -= tile_height;
-  }
+  }*/
 }
 
 void TileMap::update(float dt)
 {
-  for(int i = 0; i < tiles.size(); i++)
+/*  for(int i = 0; i < tiles.size(); i++)
   {
     tiles[i]->update(dt);
-  }    
+  }*/    
 }

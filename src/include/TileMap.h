@@ -20,7 +20,7 @@ class TileMap
     int tile_width;
     int tile_height;
     char *map_file;
-    vector<Tile*> tiles;
+    //vector<Tile*> tiles;
     int **tileset;
 };
 

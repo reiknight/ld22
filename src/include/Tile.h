@@ -1,5 +1,5 @@
-#ifndef TILE_CLASS_H
-#define TILE_CLASS_H
+#ifndef CLASS_TILE_H
+#define CLASS_TILE_H
 
 #include "Globals.h"
 #include "Sprite.h"
@@ -13,7 +13,7 @@ class Tile
     void update(float dt);
   private:
     char *name;
-    Sprite *sprite;
+    //Sprite *sprite;
 };
 
 #endif

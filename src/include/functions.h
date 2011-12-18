@@ -3,6 +3,8 @@
 
 #include "Globals.h"
 
-char* readFileContents(char *filename);
+char* readFileContents(char *filename); 
+void renderBitmapString(float x, float y, void *font, char *string);
+void drawAxis();
 
 #endif

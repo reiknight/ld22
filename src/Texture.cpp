@@ -1,8 +1,8 @@
 #include "Texture.h"
 
-Texture::Texture()
+Texture::Texture(char *filename)
 {
-
+  load(filename, GL_RGBA);
 }
 
 Texture::~Texture()

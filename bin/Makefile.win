@@ -5,8 +5,8 @@ CPP  = g++.exe -D__DEBUG__
 CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
 RES  = 
-OBJ  = ../bin/Worker.o ../bin/Enemy.o ../bin/functions.o ../bin/Game.o ../bin/main.o ../bin/Player.o ../bin/Resource.o ../bin/Sprite.o ../bin/Texture.o ../bin/Tile.o ../bin/Timer.o ../bin/TileMap.o $(RES)
-LINKOBJ  = ../bin/Worker.o ../bin/Enemy.o ../bin/functions.o ../bin/Game.o ../bin/main.o ../bin/Player.o ../bin/Resource.o ../bin/Sprite.o ../bin/Texture.o ../bin/Tile.o ../bin/Timer.o ../bin/TileMap.o $(RES)
+OBJ  = ../bin/Worker.o ../bin/Enemy.o ../bin/functions.o ../bin/Game.o ../bin/main.o ../bin/Player.o ../bin/Resource.o ../bin/Sprite.o ../bin/Texture.o ../bin/Tile.o ../bin/Timer.o ../bin/TileMap.o ../bin/TextureManager.o $(RES)
+LINKOBJ  = ../bin/Worker.o ../bin/Enemy.o ../bin/functions.o ../bin/Game.o ../bin/main.o ../bin/Player.o ../bin/Resource.o ../bin/Sprite.o ../bin/Texture.o ../bin/Tile.o ../bin/Timer.o ../bin/TileMap.o ../bin/TextureManager.o $(RES)
 LIBS =  -L"C:/Dev-Cpp/lib" -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 corona.lib tinyxml.a  -g3 
 INCS =  -I"C:/Dev-Cpp/include"  -I"C:/Documents and Settings/David/ludumdare/src/include"  -I"C:/Documents and Settings/David/ludumdare/lib/corona"  -I"C:/Documents and Settings/David/ludumdare/lib/tinyxml" 
 CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/Documents and Settings/David/ludumdare/src/include"  -I"C:/Documents and Settings/David/ludumdare/lib/corona"  -I"C:/Documents and Settings/David/ludumdare/lib/tinyxml" 
@@ -61,3 +61,6 @@ $(BIN): $(OBJ)
 
 ../bin/TileMap.o: ../src/TileMap.cpp
 	$(CPP) -c ../src/TileMap.cpp -o ../bin/TileMap.o $(CXXFLAGS)
+
+../bin/TextureManager.o: ../src/TextureManager.cpp
+	$(CPP) -c ../src/TextureManager.cpp -o ../bin/TextureManager.o $(CXXFLAGS)
