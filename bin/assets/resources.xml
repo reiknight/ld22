@@ -1,0 +1,135 @@
+<resources>
+  <resource>
+    <id>1</id>
+    <name>wood</name>
+    <category>0</category>
+  </resource>
+  <resource>
+    <id>2</id>
+    <name>metals</name>
+    <category>0</category>
+  </resource>
+  <resource>
+    <id>3</id>
+    <name>water</name>
+    <category>0</category>
+  </resource>
+  <resource>
+    <id>4</id>
+    <name>oil</name>
+    <category>0</category>
+  </resource>
+  <resource>
+    <id>5</id>
+    <name>wool</name>
+    <category>0</category>
+  </resource>
+  <resource>
+    <id>6</id>
+    <name>food</name>
+    <category>0</category>
+  </resource>
+  <resource>
+    <id>7</id>
+    <name>weapons</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="2" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>8</id>
+    <name>furniture</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="1" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>9</id>
+    <name>clothes</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="5" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>10</id>
+    <name>drinks</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="3" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>11</id>
+    <name>vehicles</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="2" quantity="1" />
+      <resource id="4" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>12</id>
+    <name>books</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="1" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>13</id>
+    <name>plastic</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="4" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>14</id>
+    <name>toys</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="13" quantity="1" />
+      <resource id="5" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>15</id>
+    <name>glass</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="4" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>16</id>
+    <name>electronics</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="2" quantity="1" />
+      <resource id="13" quantity="1" />
+    </dependencies>
+  </resource>
+  <resource>
+    <id>17</id>
+    <name>cat_plush</name>
+    <category>1</category>
+    <time>2</time>
+    <dependencies>
+      <resource id="14" quantity="1" />
+      <resource id="5" quantity="1" />
+    </dependencies>
+  </resource>
+</resources>
