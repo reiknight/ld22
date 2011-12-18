@@ -4,7 +4,8 @@
       <sprite src="assets/grass.xml" />
     </tile>
     <tile id="1" name="water">
-      <sprite src="assets/water.xml" />      
+      <sprite src="assets/water.xml" />
+      <resource id="2" />
     </tile>
     <tile id="2" name="sand">
       <sprite src="assets/sand.xml" />      

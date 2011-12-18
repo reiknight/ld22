@@ -3,14 +3,15 @@
 
 #include "Globals.h"
 #include "Sprite.h"
+#include "Resource.h"
 
 class Tile : public Sprite
 {
   public:
-    Tile(const char *_name, const char *sprite_file);
+    Tile(const char *sprite_file, int resource_id);
     ~Tile();
   private:
-    char *name;
+    Resource *resource;
 };
 
 #endif

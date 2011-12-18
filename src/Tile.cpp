@@ -1,10 +1,13 @@
 #include "Tile.h"
+#include "Game.h"
 
-Tile::Tile(const char *_name, const char *sprite_file) : Sprite((char *)sprite_file)
+Tile::Tile(const char *sprite_file, int resource_id) : Sprite((char *)sprite_file)
 {
-  name = (char *)_name;
+  if(resource_id != -1)
+    resource = Game::getInstance()->getResourceManager()->getResource(resource_id);
 }
 
 Tile::~Tile()
 {
+             
 }

@@ -15,6 +15,7 @@ TileMap::~TileMap()
 void TileMap::reload()
 {
   TiXmlNode* xMap;
+  int resource_id;
   
   // Release resources
   clean();
@@ -32,8 +33,13 @@ void TileMap::reload()
       
       for(TiXmlElement* xTile = xMap->FirstChildElement("tiles")->FirstChildElement("tile"); xTile != 0; xTile = xTile->NextSiblingElement("tile"))
       {
+        resource_id = -1;
+        
         cout << "\t";
-        tiles.push_back(new Tile(xTile->Attribute("name"), xTile->FirstChildElement("sprite")->Attribute("src")));
+        if(xTile->FirstChildElement("resource") != 0)
+          sscanf(xTile->FirstChildElement("resource")->Attribute("id"), "%d", &resource_id);
+          
+        tiles.push_back(new Tile(xTile->FirstChildElement("sprite")->Attribute("src"), resource_id));
       }
       char *xTileset = (char *)xMap->FirstChildElement("tileset")->GetText();
       sscanf((char *)xMap->FirstChildElement("tileset")->Attribute("rows"), "%d", &rows);
