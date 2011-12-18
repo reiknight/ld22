@@ -3,7 +3,6 @@
 
 #include "Globals.h"
 #include "Texture.h"
-#include "Game.h"
 
 class Sprite
 {

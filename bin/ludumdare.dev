@@ -1,7 +1,7 @@
 [Project]
 FileName=ludumdare.dev
 Name=ludumdare
-UnitCount=26
+UnitCount=28
 Type=1
 Ver=1
 ObjFiles=
@@ -309,6 +309,26 @@ BuildCmd=
 FileName=..\src\include\TextureManager.h
 CompileCpp=1
 Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit27]
+FileName=..\src\include\Scene.h
+CompileCpp=1
+Folder=Header Files
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit28]
+FileName=..\src\Scene.cpp
+CompileCpp=1
+Folder=Source Files
 Compile=1
 Link=1
 Priority=1000

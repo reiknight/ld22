@@ -13,7 +13,7 @@ class Tile
     void update(float dt);
   private:
     char *name;
-    //Sprite *sprite;
+    Sprite *sprite;
 };
 
 #endif

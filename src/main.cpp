@@ -41,6 +41,7 @@ int main(int argc, char **argv)
 	setupRC();
 	
 	//Run game
+	Game::getInstance()->reload();
 	glutMainLoop();   
 }
 

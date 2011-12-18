@@ -3,9 +3,8 @@
 
 #include "Globals.h"
 #include "Timer.h"
-#include "Sprite.h"
-#include "TileMap.h"
 #include "TextureManager.h"
+#include "Scene.h"
 
 /**
  * Core class
@@ -48,15 +47,14 @@ class Game
     Game(Game const&);
     void operator=(Game const&);
     ~Game();
+    void loadTextures();
     /**
      * Ensure Game is executed at the same framerate
      * on all platforms
      */
     Timer timer;
-    //Sprite *sprite;
-    //TileMap *map;
     TextureManager *tm;
-    void loadTextures();
+    Scene *scene;
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "Game.h"
 
 Sprite::Sprite(char *filename)
 {
@@ -56,10 +57,7 @@ void Sprite::reload()
 }
 
 void Sprite::clean()
-{
-  if(texture != 0)
-    delete texture;
- 
+{ 
   animation.clear();    
 }
 

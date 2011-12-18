@@ -2,7 +2,7 @@
 
 Game::Game()
 {
-  reload();            
+          
 }
 
 Game::~Game()
@@ -17,15 +17,13 @@ void Game::reload()
   tm = new TextureManager();
   loadTextures();
   
-  //sprite = new Sprite("assets/turtle.xml");
-  //map = new TileMap("assets/map.xml");
+  scene = new Scene();
 }
 
 void Game::clean()
 {
   delete tm;
-  //delete sprite;
-  //delete map;
+  delete scene;
 }
 
 void Game::loop()
@@ -46,10 +44,7 @@ void Game::render()
   glLoadIdentity();
   glColor4f(1.0f,1.0f,1.0f,1.0f);
 
-  //map->render();
-  //sprite->render();
-    
-  drawAxis();
+  scene->render();
   
 	glColor3f(1.0f,1.0f,1.0f);
 	renderBitmapString(450,450,GLUT_BITMAP_HELVETICA_12,timer.getFPS());
@@ -59,8 +54,7 @@ void Game::render()
 
 void Game::update(float dt)
 {
-  //map->update(dt);
-  //sprite->update(dt);
+  scene->update(dt);
 }
 
 void Game::readKeyboard(char key, bool pressed)
@@ -95,7 +89,7 @@ void Game::loadTextures()
     
     for(TiXmlElement* texture = xTextures->FirstChildElement("texture"); texture != 0; texture = texture->NextSiblingElement("texture"))
     {
-        cout << "\t Loading texture " << texture->Attribute("src") << "..." << endl;                            
+        cout << "\tLoading texture " << texture->Attribute("src") << "..." << endl;                            
         sscanf(texture->Attribute("id"), "%d", &texture_id);
         tm->setTexture(texture_id, (char *) texture->Attribute("src"));              
     }
