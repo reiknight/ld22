@@ -6,4 +6,6 @@
   <texture id="5" src="assets/bosque.png" />
   <texture id="6" src="assets/tasks.png" />
   <texture id="7" src="assets/petroleo.png" />
+  <texture id="8" src="assets/wool.png" />
+  <texture id="9" src="assets/metal.png" />
 </texture>

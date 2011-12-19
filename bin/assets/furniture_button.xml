@@ -1,0 +1,7 @@
+<sprite>
+  <position x="0" y="0" />
+  <texture id="6" />
+  <animation frames="18" time="0">
+    <frame>7</frame>
+  </animation>
+</sprite>

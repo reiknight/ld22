@@ -13,11 +13,18 @@ Select::Select(int _x, int _y, int _w, int _h)
   folded = false;
   button = new Button("assets/select.xml");     
   
-  options.push_back(new Button("assets/wood_button.xml"));     
+  options.push_back(new Button("assets/wood_button.xml"));  //0   
   options.push_back(new Button("assets/metal_button.xml"));
   options.push_back(new Button("assets/water_button.xml"));
   options.push_back(new Button("assets/oil_button.xml"));
   options.push_back(new Button("assets/wool_button.xml"));
+  options.push_back(new Button("assets/food_button.xml"));
+  options.push_back(new Button("assets/weapon_button.xml"));
+  options.push_back(new Button("assets/furniture_button.xml"));
+  options.push_back(new Button("assets/clothes_button.xml")); //8
+  options.push_back(new Button("assets/drinks_button.xml")); //9
+  options.push_back(new Button("assets/auto_button.xml")); //10
+  options.push_back(new Button("assets/plastic_button.xml")); //11
   
   option_selected = 0;
   time = 0;

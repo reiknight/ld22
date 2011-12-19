@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "ResourceManager.h"
+#include "Resource.h"
 #include "Select.h"
 
 Player::Player(char *sprite_file) : Sprite(sprite_file) {
@@ -38,6 +39,6 @@ void Player::endTurn(vector<Select *> selects, vector<TextInput *> text_inputs)
      int value = 0;
      sscanf(text_inputs[i]->getValue(),"%d", &value);
      workers[i].changeHours(value);
-     workers[i].changeResource(true,*rm->getResource(selects[i]->getOptionSelected()));
+    // workers[i].changeResource(true,*rm->getResource(selects[i]->getOptionSelected()));
   }
 }
