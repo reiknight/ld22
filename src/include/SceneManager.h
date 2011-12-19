@@ -5,9 +5,13 @@
 #include "Scene.h"
 #include "MainScene.h"
 #include "ManageScene.h"
+#include "StartScene.h"
+#include "EndScene.h"
 
 #define MAIN_SCENE 0
 #define MANAGE_SCENE 1
+#define START_SCENE 2
+#define END_SCENE 3
 
 class SceneManager
 {

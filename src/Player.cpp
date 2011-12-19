@@ -32,13 +32,15 @@ bool Player::endTurn(vector<Select *> selects, vector<TextInput *> text_inputs)
      int value = 0;
      resource = rm->getResource(selects[i]->getOptionSelected());
      sscanf(text_inputs[i]->getValue(),"%d", &value);
+     
      workers[i].changeHours(value*(resource->getTime()));
      workers[i].changeResource(resource);
+     
      int life = workers[i].getLife();
-     money += value*(resource->getMoney());
+     money += value*resource->getMoney();
      if(life >  0) {
        int happiness = 8-workers[i].getTime();
-       workers[i].changeLife(life - 5*happiness);
+       workers[i].changeLife(life + 5*happiness);
      } else {
        end_game = true;
      }
