@@ -11,7 +11,7 @@ class Worker : public Sprite {
              ~Worker();
              void changeLife(int inc);
              void changeHours(int h);
-             void changeResource(bool isGathered,Resource res);
+             void changeResource(bool isGathered, Resource* res);
       private:
               signed int life;
               float happiness;

@@ -1,9 +1,14 @@
 #include "Resource.h"
 
-Resource::Resource(int _id, char *_name, int category, int time)
+Resource::Resource(int _id, char *_name, int _category, int time)
 {
   id = _id;
   name = _name;                      
-  isPrime = category == 0;
+  category = _category;
   hours = time;
+}
+
+bool Resource::isPrime()
+{
+  return category == 0;
 }

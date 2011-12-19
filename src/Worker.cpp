@@ -21,12 +21,12 @@ void Worker::changeLife(int inc) {
 void Worker::changeHours(int h) {
   hours = h;
 }
-void Worker::changeResource(bool isGathered,Resource res) {
-   if(isGathered) {
-      resource_gathered = &res;
-      resource_exported = NULL;
-   } else {
-      resource_gathered = NULL;
-      resource_exported = &res;
-   }
+void Worker::changeResource(bool isGathered, Resource *res) {
+  if(isGathered) {
+    resource_gathered = res;
+    resource_exported = NULL;
+  } else {
+    resource_gathered = NULL;
+    resource_exported = res;
+  }
 }
