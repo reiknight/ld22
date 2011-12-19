@@ -2,7 +2,7 @@
 
 TextureManager::TextureManager()
 {
-  textures = vector<Texture*> (100);             
+  textures = vector<Texture*> (100);        
 }
 
 TextureManager::~TextureManager()

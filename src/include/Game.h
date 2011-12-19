@@ -6,7 +6,7 @@
 #include "TextureManager.h"
 #include "InputManager.h"
 #include "ResourceManager.h"
-#include "Scene.h"
+#include "SceneManager.h"
 
 #define GAME_WIDTH 640
 #define GAME_HEIGHT 480
@@ -50,6 +50,8 @@ class Game
     TextureManager* getTextureManager();
     InputManager* getInputManager();
     ResourceManager* getResourceManager();
+    SceneManager* getSceneManager();
+    Player* getPlayer();
   private:
     Game();
     Game(Game const&);
@@ -63,7 +65,8 @@ class Game
     TextureManager *tm;
     InputManager *im;
     ResourceManager *rm;
-    Scene *scene;
+    SceneManager *sm;
+    Player *player;
 };
 
 #endif
