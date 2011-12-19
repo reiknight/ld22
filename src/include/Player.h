@@ -13,7 +13,7 @@ class Player : public Sprite {
               ~Player();
               void incMoney(int inc);
               void incHappiness(int inc);
-              void endTurn(vector<Select *> selects, vector<TextInput *> text_inputs);
+              bool endTurn(vector<Select *> selects, vector<TextInput *> text_inputs);
       private:
               long int money;
               int n_workers;

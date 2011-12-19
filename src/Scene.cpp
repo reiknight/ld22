@@ -149,7 +149,7 @@ void Scene::update(float dt)
         
     if(button->isPressed())
     {
-      player->endTurn(selects, text_inputs);
+      if(player->endTurn(selects, text_inputs)) { exit(0); } //se acaba el juego
       time = 0;
       end_turn = false;
     }
