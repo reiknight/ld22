@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "ResourceManager.h"
+#include "Select.h"
 
 Player::Player(char *sprite_file) : Sprite(sprite_file) {
    money = 0; //No score in the beginning
@@ -31,4 +33,11 @@ void Player::endTurn(vector<Select *> selects, vector<TextInput *> text_inputs)
   //de los text_inputs, usando getVAlue() nos devuelve
   //el numero de horas (en char*, se tiene que castear a
   //int usando sscanf
+  ResourceManager* rm = new ResourceManager();
+  for(int i = 0; i < 10; i ++) {
+     int value = 0;
+     sscanf(text_inputs[i]->getValue(),"%d", &value);
+     workers[i].changeHours(value);
+     workers[i].changeResource(true,*rm->getResource(selects[i]->getOptionSelected()));
+  }
 }

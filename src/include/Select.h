@@ -12,6 +12,7 @@ class Select
     void render();
     void update(float dt);
     bool isFolded();
+    int getOptionSelected();
   private:
     int x;
     int y;

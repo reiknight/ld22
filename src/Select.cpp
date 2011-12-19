@@ -107,3 +107,7 @@ bool Select::isFolded()
 {
   return folded;  
 }
+
+int Select::getOptionSelected() {
+    return option_selected;
+}
