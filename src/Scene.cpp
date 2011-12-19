@@ -21,6 +21,7 @@ Scene::~Scene()
 void Scene::reload()
 {
   Select *select;
+  TextInput *text_input;
   clean();
   
   map = new TileMap("assets/map.xml");              
@@ -31,6 +32,9 @@ void Scene::reload()
   {
     select = new Select(75, -20-35*i, 300, 30);
     selects.push_back(select);
+    
+    text_input = new TextInput(400, -20-35*i, 75, 30, "1");
+    text_inputs.push_back(text_input);
   }
 }
 
@@ -46,6 +50,7 @@ void Scene::clean()
     delete button; 
     
   selects.clear();
+  text_inputs.clear();
 }
     
 void Scene::render()
@@ -72,9 +77,12 @@ void Scene::render()
         last_render = i;
       else
         selects[i]->render();
+        
+      text_inputs[i]->render();
     }
     if(last_render != -1)
-      selects[last_render]->render();    
+      selects[last_render]->render(); 
+         
       
     glPushMatrix();
     glTranslatef(0,GAME_HEIGHT,0);
@@ -90,6 +98,7 @@ void Scene::render()
 void Scene::update(float dt)
 {
   int update_folded = -1;
+  int update_editing = -1;
   
   time += dt;
   
@@ -109,6 +118,9 @@ void Scene::update(float dt)
     {
       if(selects[i]->isFolded())
         update_folded = i;
+        
+      if(text_inputs[i]->isEditing())
+        update_editing = i;
     }
 
     if(update_folded == -1)
@@ -122,9 +134,22 @@ void Scene::update(float dt)
     {
       selects[update_folded]->update(dt);  
     }
+    
+    if(update_editing == -1)
+    {
+      for(int i = 0; i < 10; i++)
+      {
+        text_inputs[i]->update(dt);
+      }
+    }
+    else
+    {
+      text_inputs[update_editing]->update(dt);  
+    }
         
     if(button->isPressed())
     {
+      player->endTurn(selects, text_inputs);
       time = 0;
       end_turn = false;
     }

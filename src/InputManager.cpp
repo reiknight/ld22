@@ -13,6 +13,9 @@ InputManager::~InputManager()
 
 void InputManager::readKeyboard(unsigned char key, bool pressed)
 {
+  if(pressed)
+    last_key_pressed = key;
+    
   keys[key] = pressed;
 }
 
@@ -37,4 +40,9 @@ bool InputManager::clickedInside(int button, int x, int y, int w, int h)
 MouseEvent InputManager::getLastClick(int button)
 {
   return buttons[button];
+}
+
+unsigned char InputManager::getLastKeyPressed()
+{
+  return last_key_pressed;
 }

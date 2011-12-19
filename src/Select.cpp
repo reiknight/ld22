@@ -43,9 +43,9 @@ void Select::render()
   glPushMatrix();
   glTranslatef(0,GAME_HEIGHT,0);
   if(!folded)
-    glColor3f(1,1,1);
-  else
     glColor3f(0.7,0.7,0.7);
+  else
+    glColor3f(1,1,1);
   glBegin(GL_QUADS);
     glVertex2f(x, y-h);
     glVertex2f(x+w, y-h);

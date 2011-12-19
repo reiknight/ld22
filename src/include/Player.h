@@ -4,6 +4,8 @@
 #include "Globals.h"
 #include "Sprite.h"
 #include "Worker.h"
+#include "Select.h"
+#include "TextInput.h"
 
 class Player : public Sprite {
       public:
@@ -11,6 +13,7 @@ class Player : public Sprite {
               ~Player();
               void incMoney(int inc);
               void incHappiness(int inc);
+              void endTurn(vector<Select *> selects, vector<TextInput *> text_inputs);
       private:
               long int money;
               int n_workers;

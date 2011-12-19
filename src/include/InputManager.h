@@ -14,9 +14,11 @@ class InputManager
     bool keyPressed(unsigned char key);
     bool clickedInside(int button, int x, int y, int w, int h);
     MouseEvent getLastClick(int button);
+    unsigned char getLastKeyPressed();
   private:
     unsigned char keys[256];
     MouseEvent buttons[3];
+    unsigned char last_key_pressed;
 };
 
 #endif

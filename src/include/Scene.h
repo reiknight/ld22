@@ -6,6 +6,7 @@
 #include "TileMap.h"
 #include "Button.h"
 #include "Select.h"
+#include "TextInput.h"
 
 class Scene
 {
@@ -24,6 +25,7 @@ class Scene
     float time;
     float turn_time;
     vector<Select*> selects;
+    vector<TextInput*> text_inputs;
 };
 
 #endif
