@@ -21,6 +21,7 @@ void ResourceManager::loadResources(char *filename)
   int id;
   int category;
   int time = 0;
+  int money;
 
   cout << "Loading " << filename << "..." << endl;      
   TiXmlDocument doc(filename);
@@ -34,7 +35,8 @@ void ResourceManager::loadResources(char *filename)
       sscanf(resource->Attribute("category"), "%d", &category);
       if(resource->Attribute("time") != 0)
         sscanf(resource->Attribute("time"), "%d", &time);
-      resources[id] = new Resource(id, (char *)resource->Attribute("name"), category, time); 
+      sscanf(resource->Attribute("money"),"%d", &money);
+      resources[id] = new Resource(id, (char *)resource->Attribute("name"), category, time, money); 
   }
 }
 

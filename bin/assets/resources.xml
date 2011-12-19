@@ -1,47 +1,47 @@
 <resources>
-  <resource id="0" name="wood" category="0" />
-  <resource id="1" name="metals" category="0" />
-  <resource id="2" name="water" category="0" />
-  <resource id="3" name="oil" category="0" />
-  <resource id="4" name="wool" category="0" />
-  <resource id="5" name="food" category="0" />
-  <resource id="6" name="weapons" category="1" time="2">
+  <resource id="0" name="wood" category="0" money="1000" />
+  <resource id="1" name="metals" category="0" money="1500" />
+  <resource id="2" name="water" category="0" money="1000" />
+  <resource id="3" name="oil" category="0" money="2000" />
+  <resource id="4" name="wool" category="0" money="1000" />
+  <resource id="5" name="food" category="0" money="1000" />
+  <resource id="6" name="weapons" category="1" time="4" money="4000">
     <dependencies>
       <resource id="1" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="7" name="furniture" category="1" time="2">
+  <resource id="7" name="furniture" category="1" time="2" money="1500>
     <dependencies>
       <resource id="0" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="8" name="clothes" category="1" time="2">
+  <resource id="8" name="clothes" category="1" time="1" money="1000">
     <dependencies>
       <resource id="4" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="9" name="drinks" category="1" time="2">
+  <resource id="9" name="drinks" category="1" time="1" money="700">
     <dependencies>
       <resource id="2" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="10" name="vehicles" category="1" time="2">
+  <resource id="10" name="vehicles" category="1" time="12" money="16000">
     <dependencies>
       <resource id="1" quantity="1" />
       <resource id="3" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="11" name="books" category="1" time="2">
+  <resource id="11" name="books" category="1" time="1" money="1100">
     <dependencies>
       <resource id="0" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="12" name="plastic" category="1" time="2">
+  <resource id="12" name="plastic" category="1" time="6" money="6600">
     <dependencies>
       <resource id="3" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="13" name="toys" category="1" time="2">
+  <resource id="13" name="toys" category="1" time="3" money="1500">
     <dependencies>
       <resource id="12" quantity="1" />
       <resource id="4" quantity="1" />

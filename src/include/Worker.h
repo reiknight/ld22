@@ -11,14 +11,15 @@ class Worker : public Sprite {
              ~Worker();
              void changeLife(int inc);
              void changeHours(int h);
-             void changeResource(bool isGathered, Resource* res);
+             void changeResource(Resource* res);
+             int getTime();
+             int getLife();
       private:
               signed int life;
               float happiness;
               signed int hours;
               float sueldo;
-              Resource *resource_gathered;
-              Resource *resource_exported;
+              Resource *resource;
 };
 
 #endif
