@@ -14,8 +14,9 @@ class Sprite
     virtual void update(float dt);
     void render();
     void render(int _x, int _y);
-    float euclidean(Sprite p); //Euclidean distance (d_2)
-    int distance(Sprite p); //Absolute distance (d_1)
+    float euclidean(Sprite *p); //Euclidean distance (d_2)
+    int distance(Sprite *p); //Absolute distance (d_1)
+    void setPosition(int _x, int _y);
   protected:
     int x;
     int y;

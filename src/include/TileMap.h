@@ -15,6 +15,7 @@ class TileMap
     void clean();
     void render();
     void update(float dt);
+    Tile* checkClick();
   private:
     int rows;
     int cols;
@@ -23,7 +24,6 @@ class TileMap
     char *map_file;
     vector<Tile*> tiles;
     int **tileset;
-    Tile* checkClick();
 };
 
 #endif

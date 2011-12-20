@@ -10,7 +10,7 @@
       <resource id="1" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="7" name="furniture" category="1" time="2" money="1500>
+  <resource id="7" name="furniture" category="1" time="2" money="1500">
     <dependencies>
       <resource id="0" quantity="1" />
     </dependencies>
@@ -47,18 +47,18 @@
       <resource id="4" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="14" name="glass" category="1" time="2">
+  <resource id="14" name="glass" category="1" time="2" money="1500">
     <dependencies>
       <resource id="3" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="15" name="electronics" category="1" time="2">
+  <resource id="15" name="electronics" category="1" time="2" money="1500">
     <dependencies>
       <resource id="1" quantity="1" />
       <resource id="12" quantity="1" />
     </dependencies>
   </resource>
-  <resource id="16" name="cat_plush" category="1" time="2">
+  <resource id="16" name="cat_plush" category="1" time="2" money="1500">
     <dependencies>
       <resource id="13" quantity="1" />
       <resource id="4" quantity="1" />

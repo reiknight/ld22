@@ -126,12 +126,18 @@ void Sprite::render(int _x, int _y)
   render();
 }
 
-float Sprite::euclidean(Sprite p) {
-      int A = x - p.x;
-      int B = y - p.y;
+float Sprite::euclidean(Sprite *p) {
+      int A = x - p->x;
+      int B = y - p->y;
       return sqrt(pow(A,2) + pow(B,2)); //SQRT((x-a)² + (x-b)²)
 }
 
-int Sprite::distance(Sprite p) {
-    return abs(x-p.x) + abs(y-p.y);
+int Sprite::distance(Sprite *p) {
+    return abs(x-p->x) + abs(y-p->y);
+}
+
+void Sprite::setPosition(int _x, int _y)
+{
+   x = _x;
+   y = _y;    
 }

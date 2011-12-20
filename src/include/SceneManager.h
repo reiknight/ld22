@@ -25,6 +25,7 @@ class SceneManager
     void update(float dt);
     void setActive(int _active);
     void loadScenes();
+    Scene* getScene(int id);
   private:
     vector<Scene*> scenes;  
     int active;

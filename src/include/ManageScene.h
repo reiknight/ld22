@@ -17,10 +17,15 @@ class ManageScene : public Scene
     void clean();
     void render();
     void update(float dt);
+    void setDistance(int _distance);
   private:
+    int picking;
+    int distance;
     Button *button;
     vector<Select*> selects;
     vector<TextInput*> text_inputs;
+    vector<Button*> crosshairs;
+    vector<int> distances;
 };
 
 #endif

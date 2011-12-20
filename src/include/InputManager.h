@@ -19,6 +19,7 @@ class InputManager
     unsigned char keys[256];
     MouseEvent buttons[3];
     unsigned char last_key_pressed;
+    int mouse_time;
 };
 
 #endif

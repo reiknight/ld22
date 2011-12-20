@@ -15,10 +15,13 @@ class MainScene : public Scene
     void clean();
     void render();
     void update(float dt);
+    void pickResource();
   private:
     TileMap *map;
     int time;
     int turn_time;  
+    bool picking;
+    int picking_time;
 };
 
 #endif

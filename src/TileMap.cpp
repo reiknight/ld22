@@ -100,12 +100,6 @@ void TileMap::clean()
 
 void TileMap::render()
 {
-   /*int Xo = map->coord_x / map->tile_width;
-   int Yo = map->coord_y / map->tile_height;
-
-   int Xf = Xo + map->scene_width - 1;
-   int Yf = Yo + map->scene_height - 1;*/
-
    int pos_x = 0;
    int pos_y = 0;
 
@@ -119,20 +113,6 @@ void TileMap::render()
       pos_x = 0;
       pos_y -= tile_height;
    }
-   
-  /*int x = -((cols/2)*tile_width); 
-  int y = ((rows/2)-1)*tile_height;
-  
-  for(int i = 0; i < rows; i++)
-  {
-    for(int j = 0; j < cols; j++)
-    {
-      tiles[tileset[i][j]]->render(x,y);
-      x += tile_width;
-    }
-    x = -((cols/2)*tile_width);
-    y -= tile_height;
-  }*/
 }
 
 void TileMap::update(float dt)
@@ -141,9 +121,6 @@ void TileMap::update(float dt)
   {
     tiles[i]->update(dt);
   }
-  
-  //TODO: seleccion recurso
-  Tile *tile_clicked = checkClick();
 }
 
 Tile* TileMap::checkClick()
@@ -155,6 +132,7 @@ Tile* TileMap::checkClick()
   {
     int i = lastClick.getPosition().y / tile_height;
     int j = lastClick.getPosition().x / tile_width;
+    tiles[tileset[i][j]]->setPosition(lastClick.getPosition().x, -lastClick.getPosition().y);
     return tiles[tileset[i][j]];
   }
     

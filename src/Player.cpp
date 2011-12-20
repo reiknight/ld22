@@ -33,7 +33,8 @@ bool Player::endTurn(vector<Select *> selects, vector<TextInput *> text_inputs)
      resource = rm->getResource(selects[i]->getOptionSelected());
      sscanf(text_inputs[i]->getValue(),"%d", &value);
      
-     workers[i].changeHours(value*(resource->getTime()));
+     int distance = 0;
+     workers[i].changeHours(2*distance+value*(resource->getTime()));
      workers[i].changeResource(resource);
      
      int life = workers[i].getLife();

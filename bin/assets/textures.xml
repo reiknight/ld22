@@ -8,4 +8,5 @@
   <texture id="7" src="assets/petroleo.png" />
   <texture id="8" src="assets/wool.png" />
   <texture id="9" src="assets/metal.png" />
+  <texture id="10" src="assets/crosshair.png" />
 </texture>

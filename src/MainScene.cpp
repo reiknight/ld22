@@ -6,6 +6,7 @@ MainScene::MainScene()
   map = 0;
   time = 0;
   turn_time = 10000;
+  picking_time = 0;
   
   reload();
 }
@@ -42,8 +43,26 @@ void MainScene::render()
 
 void MainScene::update(float dt)
 {
-  time += dt;
-  
+  int distance;
+  Tile *tile;
+  if(!picking)
+    time += dt;
+  else
+  {
+    picking_time += dt;
+    if(picking_time > 1000)
+    {
+      picking_time = 0;
+      tile = map->checkClick();
+      if(tile != 0 && tile->getResource() != 0)
+      {
+        distance = floor(Game::getInstance()->getPlayer()->euclidean(tile)/100);
+        ((ManageScene*)Game::getInstance()->getSceneManager()->getScene(MAIN_SCENE))->setDistance(distance);
+        Game::getInstance()->getSceneManager()->setActive(MANAGE_SCENE);
+      }
+    }
+  }
+
   map->update(dt);
   Game::getInstance()->getPlayer()->update(dt);
     
@@ -52,4 +71,9 @@ void MainScene::update(float dt)
     time = 0;
     Game::getInstance()->getSceneManager()->setActive(MANAGE_SCENE);
   }
+}
+
+void MainScene::pickResource()
+{
+  picking = true;
 }

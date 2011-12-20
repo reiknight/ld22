@@ -44,3 +44,8 @@ void SceneManager::loadScenes()
   scenes[START_SCENE] = new StartScene();
   scenes[END_SCENE] = new EndScene();
 }
+
+Scene* SceneManager::getScene(int id)
+{
+  return scenes[id];
+}
