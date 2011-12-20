@@ -33,8 +33,7 @@ void ResourceManager::loadResources(char *filename)
       cout << "\tLoading resource " << resource->Attribute("name") << "..." << endl;                            
       sscanf(resource->Attribute("id"), "%d", &id);
       sscanf(resource->Attribute("category"), "%d", &category);
-      if(resource->Attribute("time") != 0)
-        sscanf(resource->Attribute("time"), "%d", &time);
+      sscanf(resource->Attribute("time"), "%d", &time);
       sscanf(resource->Attribute("money"),"%d", &money);
       resources[id] = new Resource(id, (char *)resource->Attribute("name"), category, time, money); 
   }

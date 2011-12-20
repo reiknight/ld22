@@ -28,7 +28,7 @@ void Game::reload()
   
   sm = new SceneManager();
   sm->loadScenes();
-  sm->setActive(MANAGE_SCENE);
+  sm->setActive(START_SCENE);
   
   player = new Player("assets/player.xml"); 
 }

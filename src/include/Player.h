@@ -14,6 +14,7 @@ class Player : public Sprite {
               void incMoney(int inc);
               void incHappiness(int inc);
               bool endTurn(vector<Select *> selects, vector<TextInput *> text_inputs);
+              Worker* getWorker(int i);
       private:
               long int money;
               int n_workers;

@@ -141,3 +141,8 @@ void Sprite::setPosition(int _x, int _y)
    x = _x;
    y = _y;    
 }
+
+void Sprite::setCurrentFrame(int i)
+{
+  current_frame = i;    
+}

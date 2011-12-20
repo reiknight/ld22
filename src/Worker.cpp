@@ -19,6 +19,16 @@ int Worker::getLife() {
 
 void Worker::changeLife(int inc) {
   life += inc;
+  
+  if(life > 100)
+    life = 100;
+  
+  if(life < 30)
+    setCurrentFrame(2);
+  else if(life < 70)
+    setCurrentFrame(1);
+  else
+    setCurrentFrame(0);
 }
 
 int Worker::getTime() {

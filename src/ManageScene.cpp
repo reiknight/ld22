@@ -86,15 +86,11 @@ void ManageScene::render()
   if(last_render != -1)
     selects[last_render]->render(); 
        
-    
-  glPushMatrix();
-  glTranslatef(0,GAME_HEIGHT,0);
-  glColor3f(1.0f,1.0f,1.0f);
+  glColor3f(1,1,1);
 	for(int i = 0; i < 10; i++)
 	{
-   	renderBitmapString(10,-i*40,GLUT_BITMAP_HELVETICA_12,"worker");
+    Game::getInstance()->getPlayer()->getWorker(i)->render(20, -20-35*i);
   }
-  glPopMatrix();
 }
 
 void ManageScene::update(float dt)
@@ -139,13 +135,19 @@ void ManageScene::update(float dt)
       
   if(button->isPressed())
   {
-    if(Game::getInstance()->getPlayer()->endTurn(selects, text_inputs)) { exit(0); } //se acaba el juego
-    Game::getInstance()->getSceneManager()->setActive(MAIN_SCENE);
+    if(Game::getInstance()->getPlayer()->endTurn(selects, text_inputs)) 
+    { 
+      Game::getInstance()->getSceneManager()->setActive(END_SCENE);
+    }
+    else
+    {
+      Game::getInstance()->getSceneManager()->setActive(MAIN_SCENE);
+    }
   }
   
   if(picking >= 0)
   {
-    cout << distance << endl;
+    cout << "PICK: " << distance << endl;
     distances[picking] = distance;
     picking = -1;
   }
@@ -164,6 +166,6 @@ void ManageScene::update(float dt)
 
 void ManageScene::setDistance(int _distance)
 {
-  cout << _distance << endl;
+  cout << "SET: " << _distance << endl;
   distance = _distance;
 }

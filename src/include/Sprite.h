@@ -17,6 +17,7 @@ class Sprite
     float euclidean(Sprite *p); //Euclidean distance (d_2)
     int distance(Sprite *p); //Absolute distance (d_1)
     void setPosition(int _x, int _y);
+    void setCurrentFrame(int i);
   protected:
     int x;
     int y;

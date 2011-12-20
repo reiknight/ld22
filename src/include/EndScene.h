@@ -14,6 +14,8 @@ class EndScene : public Scene
     void render();
     void update(float dt);
   private:
+    Sprite *background;
+    Button *button;
 
 };
 

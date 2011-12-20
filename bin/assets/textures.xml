@@ -9,4 +9,10 @@
   <texture id="8" src="assets/wool.png" />
   <texture id="9" src="assets/metal.png" />
   <texture id="10" src="assets/crosshair.png" />
+  <texture id="11" src="assets/title.png" />
+  <texture id="12" src="assets/gameover.png" />
+  <texture id="13" src="assets/play.png" />
+  <texture id="14" src="assets/play_again.png" />
+  <texture id="15" src="assets/faces.png" />
 </texture>
+
